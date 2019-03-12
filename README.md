@@ -1,6 +1,6 @@
 # Brown University Datepicker
 
-A datepicker for React-based applications at Brown University.
+A wrapped implementation of Airbnb's [`react-dates`](https://github.com/airbnb/react-dates) for use in React-based applications at Brown University.
 
 _On-prem Bitbucket doesn't render markdown very nicely; view this in a markdown editor like [Dillinger](https://dillinger.io/)._
 
@@ -26,6 +26,7 @@ _Ensure you're on the network and that your SSH key has been added to the ssh-ag
 These libraries are not bundled with Brown University Datepicker and are required at runtime:
 
 - [**brown-university-styles**](https://bitbucket.brown.edu/projects/REACT/repos/brown-university-styles)
+- [**moment**](https://www.npmjs.com/package/moment)
 - [**react**](https://www.npmjs.com/package/react)
 - [**styled-components**](https://www.npmjs.com/package/styled-components)
 

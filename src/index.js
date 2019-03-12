@@ -1,2 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-export { default as Todo } from "./components/Todo";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
+
+export { default as SingleDatePicker } from "./components/SingleDatePicker";

@@ -1,6 +1,6 @@
 {
   "name": "brown-university-datepicker",
-  "description": "A datepicker for React-based applications at Brown University.",
+  "description": "A wrapped implementation of Airbnb's react-dates for use in React-based applications at Brown University.",
   "author": "Colin Cummings <colin_cummings@brown.edu>",
   "version": "0.1.0",
   "private": true,
@@ -29,11 +29,13 @@
   },
   "peerDependencies": {
     "brown-university-styles": "git+https://bitbucket.brown.edu/scm/react/brown-university-styles.git#semver:^0.1",
+    "moment": "^2.18.1",
     "react": "^16.0.0",
     "styled-components": "^4.0.0"
   },
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react-dates": "^20.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -58,6 +60,7 @@
     "jest": "^24.1.0",
     "jest-dom": "^3.1.2",
     "jest-styled-components": "^6.3.1",
+    "moment": "^2.24.0",
     "npm-run-all": "^4.1.3",
     "opener": "^1.5.1",
     "prettier": "^1.15.2",
