@@ -1,15 +1,21 @@
 import PropTypes from "prop-types";
 import React from "react";
+import moment from "moment";
 import styled from "styled-components";
 import { SingleDatePicker as AirbnbSingleDatePicker } from "react-dates";
-import "react-dates/initialize";
 import { colors, typography } from "brown-university-styles";
 
 /*
   move to, or derive from, brown-university-styles?
 */
-const inputFontSize = "1.1rem";
-const calendarDayFontSize = "1rem";
+// baseFontSize of 16
+const inputFontSize = "1.1rem"; // getRems(16)
+const dayPickerWeekHeaderFontSize = "0.75rem"; // getRems(12)
+const calendarDayFontSize = "1.125rem"; // getRems(18)
+
+moment.updateLocale("en", {
+  weekdaysMin: ["S", "M", "T", "W", "T", "F", "S"]
+});
 
 /*
   inner components
@@ -41,9 +47,17 @@ const Wrapper = styled.div`
   }
 
   .CalendarMonth_caption {
-    color: ${colors.red};
+    color: ${({ color }) => colors[color]};
     font-family: ${typography.sansBold};
     font-size: ${calendarDayFontSize};
+  }
+
+  .DayPicker_weekHeader {
+    & small {
+      font-family: ${typography.sansBold};
+      font-size: ${dayPickerWeekHeaderFontSize};
+      color: ${colors.black};
+    }
   }
 
   .CalendarDay__default {
@@ -58,21 +72,49 @@ const Wrapper = styled.div`
   }
 
   .CalendarDay__selected {
-    background-color: ${colors.red};
+    background-color: ${({ color }) => colors[color]};
     color: ${colors.white};
     border-radius: 20px;
   }
 
   .DayPickerKeyboardShortcuts_show::before {
-    border-right: 33px solid ${colors.red};
+    border-right: 33px solid ${({ color }) => colors[color]};
+  }
+
+  .DayPickerKeyboardShortcuts_title {
+    font-family: ${typography.sansBold};
+  }
+
+  .KeyboardShortcutRow {
+    margin-bottom: 12px;
+  }
+
+  .KeyboardShortcutRow_keyContainer {
+    display: inline;
+    margin-right: 6px;
+  }
+
+  .KeyboardShortcutRow_key {
+    background: ${colors.lightGray};
+    padding: 2px 6px;
+  }
+
+  .KeyboardShortcutRow_action {
+    display: inline;
+    font-family: ${typography.sans};
   }
 `;
 
 /*
   outer SingleDatePicker component
 */
-const SingleDatePicker = ({ numberOfMonths, placeholder, ...restProps }) => (
-  <Wrapper>
+const SingleDatePicker = ({
+  color,
+  numberOfMonths,
+  placeholder,
+  ...restProps
+}) => (
+  <Wrapper color={color}>
     <AirbnbSingleDatePicker
       numberOfMonths={numberOfMonths}
       placeholder={placeholder}
@@ -82,11 +124,13 @@ const SingleDatePicker = ({ numberOfMonths, placeholder, ...restProps }) => (
 );
 
 SingleDatePicker.propTypes = {
+  color: PropTypes.oneOf(["red", "idRed"]),
   numberOfMonths: PropTypes.number,
   placeholder: PropTypes.string
 };
 
 SingleDatePicker.defaultProps = {
+  color: "red",
   numberOfMonths: 1,
   placeholder: "MM/DD/YYYY"
 };
