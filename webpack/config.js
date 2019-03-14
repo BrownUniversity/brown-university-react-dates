@@ -39,7 +39,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin(`brown-university-datepicker v${version}`),
+    new webpack.BannerPlugin(`brown-university-react-dates v${version}`),
     new CleanWebpackPlugin(["dist"], {
       root: `${__dirname}/../`,
       exclude: ["es"]
