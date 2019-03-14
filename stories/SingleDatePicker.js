@@ -6,7 +6,14 @@ import SingleDatePickerContainer from "../src/components/utils/SingleDatePickerC
 import { SingleDatePicker } from "../src";
 
 const getCommonProps = () => ({
-  color: select("color", ["red", "idRed"])
+  color: select("color", [
+    "red",
+    "brown",
+    "emerald",
+    "skyBlue",
+    "navy",
+    "idRed"
+  ])
 });
 
 const renderSingleDatePicker = additionalProps => (
@@ -19,4 +26,18 @@ storiesOf("SingleDatePicker", module)
   .addDecorator(withKnobs)
   .add("default", () => renderSingleDatePicker())
   .add("with initial date", () => renderSingleDatePicker({ date: moment() }))
-  .add("with 2 months", () => renderSingleDatePicker({ numberOfMonths: 2 }));
+  .add("with 2 months", () => renderSingleDatePicker({ numberOfMonths: 2 }))
+  .add("allowing all days, including past days", () =>
+    renderSingleDatePicker({ isOutsideRange: () => false })
+  )
+  .add("highlighted Fridays", () =>
+    renderSingleDatePicker({
+      isDayHighlighted: day => moment.weekdays(day.weekday()) === "Friday"
+    })
+  )
+  .add("blocking weekends", () =>
+    renderSingleDatePicker({
+      isDayBlocked: day =>
+        ["Saturday", "Sunday"].includes(moment.weekdays(day.weekday()))
+    })
+  );

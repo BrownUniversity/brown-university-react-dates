@@ -1,22 +1,18 @@
 import PropTypes from "prop-types";
 import React from "react";
-import moment from "moment";
 import styled from "styled-components";
 import { SingleDatePicker as AirbnbSingleDatePicker } from "react-dates";
 import { colors, typography } from "brown-university-styles";
 import ChevronLeftSVG from "../svg/chevron-left.svg";
 import ChevronRightSVG from "../svg/chevron-right.svg";
+
 /*
-  move to, or derive from, brown-university-styles?
+  TODO: take from brown-university-styles
 */
 // baseFontSize of 16
 const inputFontSize = "1.1rem"; // getRems(16)
 const dayPickerWeekHeaderFontSize = "0.75rem"; // getRems(12)
 const calendarDayFontSize = "1.125rem"; // getRems(18)
-
-moment.updateLocale("en", {
-  weekdaysMin: ["S", "M", "T", "W", "T", "F", "S"]
-});
 
 /*
   inner components
@@ -59,6 +55,7 @@ const Wrapper = styled.div`
     #chevron-right {
       fill: ${({ color }) => colors[color]};
     }
+
     &:first-of-type {
       left: 22px;
     }
@@ -76,9 +73,9 @@ const Wrapper = styled.div`
 
   .DayPicker_weekHeader {
     & small {
+      color: ${colors.black};
       font-family: ${typography.sansBold};
       font-size: ${dayPickerWeekHeaderFontSize};
-      color: ${colors.black};
     }
   }
 
@@ -95,8 +92,23 @@ const Wrapper = styled.div`
 
   .CalendarDay__selected {
     background-color: ${({ color }) => colors[color]};
-    color: ${colors.white};
     border-radius: 20px;
+    color: ${colors.white};
+  }
+
+  .CalendarDay__highlighted_calendar {
+    &:not(.CalendarDay__blocked_out_of_range, .CalendarDay__selected) {
+      background-color: rgba(255, 199, 44, 0.65);
+
+      &:hover {
+        background-color: ${colors.gold};
+      }
+    }
+  }
+
+  .CalendarDay__blocked_calendar {
+    color: ${colors.mediumGray};
+    background-color: ${colors.transparentBlack};
   }
 
   .DayPickerKeyboardShortcuts_show::before {
@@ -148,7 +160,14 @@ const SingleDatePicker = ({
 );
 
 SingleDatePicker.propTypes = {
-  color: PropTypes.oneOf(["red", "idRed"]),
+  color: PropTypes.oneOf([
+    "red",
+    "brown",
+    "emerald",
+    "skyBlue",
+    "navy",
+    "idRed"
+  ]),
   numberOfMonths: PropTypes.number,
   placeholder: PropTypes.string
 };
