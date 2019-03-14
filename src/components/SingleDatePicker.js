@@ -2,17 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { SingleDatePicker as AirbnbSingleDatePicker } from "react-dates";
-import { colors, typography } from "brown-university-styles";
+import { colors, typography, getRems } from "brown-university-styles";
 import ChevronLeftSVG from "../svg/chevron-left.svg";
 import ChevronRightSVG from "../svg/chevron-right.svg";
-
-/*
-  TODO: take from brown-university-styles
-*/
-// baseFontSize of 16
-const inputFontSize = "1.1rem"; // getRems(16)
-const dayPickerWeekHeaderFontSize = "0.75rem"; // getRems(12)
-const calendarDayFontSize = "1.125rem"; // getRems(18)
 
 /*
   inner components
@@ -30,7 +22,7 @@ const Wrapper = styled.div`
     color: ${colors.mediumGray};
     display: block;
     font-family: ${typography.sans};
-    font-size: ${inputFontSize};
+    font-size: ${getRems(16)};
     padding: 8px;
 
     &::before,
@@ -68,14 +60,14 @@ const Wrapper = styled.div`
   .CalendarMonth_caption {
     color: ${({ color }) => colors[color]};
     font-family: ${typography.sansBold};
-    font-size: ${calendarDayFontSize};
+    font-size: ${getRems(18)};
   }
 
   .DayPicker_weekHeader {
     & small {
       color: ${colors.black};
       font-family: ${typography.sansBold};
-      font-size: ${dayPickerWeekHeaderFontSize};
+      font-size: ${getRems(12)};
     }
   }
 
@@ -107,8 +99,10 @@ const Wrapper = styled.div`
   }
 
   .CalendarDay__blocked_calendar {
-    color: ${colors.mediumGray};
-    background-color: ${colors.transparentBlack};
+    &:not(.CalendarDay__blocked_out_of_range) {
+      color: ${colors.mediumGray};
+      background-color: ${colors.transparentBlack};
+    }
   }
 
   .DayPickerKeyboardShortcuts_show::before {
