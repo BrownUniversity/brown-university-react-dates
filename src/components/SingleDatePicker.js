@@ -4,7 +4,8 @@ import moment from "moment";
 import styled from "styled-components";
 import { SingleDatePicker as AirbnbSingleDatePicker } from "react-dates";
 import { colors, typography } from "brown-university-styles";
-
+import ChevronLeftSVG from "../svg/chevron-left.svg";
+import ChevronRightSVG from "../svg/chevron-right.svg";
 /*
   move to, or derive from, brown-university-styles?
 */
@@ -44,6 +45,27 @@ const Wrapper = styled.div`
 
   .DateInput_input__focused {
     border-bottom: 2px solid transparent;
+  }
+
+  .DayPickerNavigation_button {
+    border: 1px solid ${colors.lightGray};
+    border-radius: 3px;
+    line-height: 0.78;
+    padding: 6px 9px;
+    position: absolute;
+    top: 18px;
+
+    #chevron-left,
+    #chevron-right {
+      fill: ${({ color }) => colors[color]};
+    }
+    &:first-of-type {
+      left: 22px;
+    }
+
+    &:last-of-type {
+      right: 22px;
+    }
   }
 
   .CalendarMonth_caption {
@@ -116,6 +138,8 @@ const SingleDatePicker = ({
 }) => (
   <Wrapper color={color}>
     <AirbnbSingleDatePicker
+      navPrev={<ChevronLeftSVG />}
+      navNext={<ChevronRightSVG />}
       numberOfMonths={numberOfMonths}
       placeholder={placeholder}
       {...restProps}

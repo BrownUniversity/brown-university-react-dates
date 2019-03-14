@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const SingleDatePickerContainer = ({
-  id = "single-date-picker-story",
+  id = "single-date-picker",
   initialDate = null,
   initialFocus = false,
   children,
