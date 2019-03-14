@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const svgRule = require("./rules/svg");
 const { version } = require("../package.json");
@@ -20,6 +19,7 @@ module.exports = {
     "brown-university-styles": "brown-university-styles",
     moment: "moment",
     react: "react",
+    "react-dates": "react-dates",
     "styled-components": "styled-components",
     "prop-types": "prop-types"
   },
@@ -35,10 +35,6 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
-      },
       svgRule
     ]
   },
@@ -47,9 +43,6 @@ module.exports = {
     new CleanWebpackPlugin(["dist"], {
       root: `${__dirname}/../`,
       exclude: ["es"]
-    }),
-    new MiniCssExtractPlugin({
-      filename: "styles.css"
     }),
     runAnalyzer && new BundleAnalyzerPlugin()
   ].filter(Boolean)
