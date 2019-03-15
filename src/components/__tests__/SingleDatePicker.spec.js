@@ -9,18 +9,15 @@ import {
 import SingleDatRangeContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
 
-// react-dates renders a month to either side of the currently visible month(s)
-/*
+// `react-dates` renders a month to either side of the currently visible month(s)
 const oneYearAgo = moment().subtract(1, "year");
 const sixMonthsAgo = moment().subtract(6, "months");
-const lastWeek = moment().subtract(1, "week");
-*/
+const yesterday = moment().subtract(1, "day");
 const today = moment();
 const nextWeek = moment().add(1, "week");
-/*
+const oneMonthFromNow = moment().add(1, "month");
 const sixMonthsFromNow = moment().add(6, "months");
 const oneYearFromNow = moment().add(1, "year");
-*/
 
 const renderSingleDatepicker = props => {
   const id = "single-date-picker-test";
@@ -37,36 +34,125 @@ const renderSingleDatepicker = props => {
 };
 
 describe("SingleDatePicker", () => {
+  const setupAndValidateDateChange = async ({ props = {}, date }) => {
+    const rtlUtils = renderSingleDatepicker(props);
+    const element = rtlUtils.getByLabelText("Date");
+
+    await makeSingleDatePickerSelection({
+      element,
+      date,
+      ...rtlUtils
+    });
+
+    expect(element.value).toBe(date.format(defaultDateFormat));
+  };
+
   describe("one month", () => {
     describe("with initial date", () => {
-      it("updates", async () => {
-        const rtlUtils = renderSingleDatepicker({
-          initialDate: today
+      it("updates date", async () => {
+        await setupAndValidateDateChange({
+          props: { initialDate: today },
+          date: nextWeek
         });
-        const inputElement = rtlUtils.getByLabelText("Date");
-
-        await makeSingleDatePickerSelection({
-          element: inputElement,
-          date: nextWeek,
-          ...rtlUtils
-        });
-
-        expect(inputElement.value).toBe(nextWeek.format(defaultDateFormat));
       });
     });
 
     describe("without initial date", () => {
-      // TODO
+      it("sets date", async () => {
+        await setupAndValidateDateChange({
+          date: oneMonthFromNow
+        });
+      });
+    });
+
+    describe("allowing all days", () => {
+      it("sets past date", async () => {
+        await setupAndValidateDateChange({
+          props: {
+            isOutsideRange: () => false
+          },
+          date: sixMonthsAgo
+        });
+      });
     });
   });
 
   describe("two months", () => {
     describe("with initial date", () => {
-      // TODO
+      it("updates date", async () => {
+        await setupAndValidateDateChange({
+          props: { numberOfMonths: 2, initialDate: today },
+          date: sixMonthsFromNow
+        });
+      });
     });
 
     describe("without initial date", () => {
-      // TODO
+      it("sets date", async () => {
+        await setupAndValidateDateChange({
+          props: {
+            numberOfMonths: 2
+          },
+          date: oneYearFromNow
+        });
+      });
     });
+
+    describe("allowing all days", () => {
+      it("sets past date", async () => {
+        await setupAndValidateDateChange({
+          props: {
+            numberOfMonths: 2,
+            isOutsideRange: () => false
+          },
+          date: oneYearAgo
+        });
+      });
+    });
+  });
+});
+
+describe("makeSingleDatePickerSelection test util", () => {
+  beforeEach(() => {
+    global.console = { warn: jest.fn() };
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("handles blocked dates gracefully with warning", async () => {
+    const rtlUtils = renderSingleDatepicker();
+    const element = rtlUtils.getByLabelText("Date");
+
+    await makeSingleDatePickerSelection({
+      element,
+      date: yesterday,
+      ...rtlUtils
+    });
+
+    /* eslint-disable no-console */
+    expect(console.warn).toHaveBeenCalledTimes(1);
+    expect(console.warn).toHaveBeenCalledWith(
+      `Unable to select \`date\` with aria-label "${yesterday.format(
+        "dddd, MMMM D, YYYY"
+      )}". If this is the expected result, then set \`warnings\` to false in this call to \`makeSingleDatePickerSelection\`.`
+    );
+    /* eslint-enable no-console */
+  });
+
+  it("handles blocked dates gracefully without warning", async () => {
+    const rtlUtils = renderSingleDatepicker();
+    const element = rtlUtils.getByLabelText("Date");
+
+    await makeSingleDatePickerSelection({
+      element,
+      date: yesterday,
+      ...rtlUtils,
+      warnings: false
+    });
+
+    // eslint-disable-next-line no-console
+    expect(console.warn).not.toHaveBeenCalled();
   });
 });

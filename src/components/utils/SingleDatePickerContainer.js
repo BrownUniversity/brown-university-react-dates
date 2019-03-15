@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 /*
-  NOTE: This component is just for tests and stories internal to this repo;
+  NOTE: This component is just for tests and stories inside this repo;
   however, it can serve as an example of the minimal implementation of
-  the `SingleDatePicker` component.
+  the `SingleDatePicker` component (aside from the use of `React.cloneElement`).
 */
 
 const SingleDatePickerContainer = ({

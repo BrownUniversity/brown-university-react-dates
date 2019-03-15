@@ -7,6 +7,8 @@ export async function makeSingleDatePickerSelection({
   element: inputElement,
   date: nextSelectionDate,
   format: nextSelectionFormat = defaultDateFormat,
+  warnings = true,
+  // react-testing-library...
   getByText,
   getByLabelText,
   queryByLabelText
@@ -52,19 +54,26 @@ export async function makeSingleDatePickerSelection({
     handleMonthNavigation();
   }
 
-  // make next selection
-  fireEvent.click(
-    getByLabelText(nextSelectionMoment.format(dateAriaLabelFormat))
+  // attempt next selection...
+  const nextSelectionLabelText = nextSelectionMoment.format(
+    dateAriaLabelFormat
   );
 
-  // blur input
-  inputElement.blur();
-
-  // validate calendar is closed
-  expect(queryByLabelText(calendarAriaLabelText)).not.toBeInTheDocument();
-
-  // validate selection
-  expect(inputElement.value).toBe(
-    nextSelectionMoment.format(defaultDateFormat)
-  );
+  try {
+    // make next selection
+    fireEvent.click(getByLabelText(nextSelectionLabelText));
+    // validate calendar is closed
+    expect(queryByLabelText(calendarAriaLabelText)).not.toBeInTheDocument();
+  } catch (e) {
+    // warn consumer if they have not disabled warnings
+    if (warnings) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Unable to select \`date\` with aria-label "${nextSelectionLabelText}". If this is the expected result, then set \`warnings\` to false in this call to \`makeSingleDatePickerSelection\`.`
+      );
+    }
+  } finally {
+    // blur input
+    inputElement.blur();
+  }
 }
