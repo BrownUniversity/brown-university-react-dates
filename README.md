@@ -1,6 +1,6 @@
 # Brown University React Dates
 
-A wrapped implementation of Airbnb's [`react-dates`](https://github.com/airbnb/react-dates) for use in React-based applications at Brown University.
+A wrapped implementation of Airbnb's [`react-dates`](https://github.com/airbnb/react-dates) plus some test utils for use in React-based applications at Brown University.
 
 ---
 
@@ -32,7 +32,7 @@ These libraries are not bundled with Brown University React Dates and are requir
 
 ### Optipnal Peer Dependencies
 
-These libraries are not bundled with Brown University React Dates, but are required if using any of the testing utilities:
+These libraries are not bundled with Brown University React Dates, but are required to use the test utils:
 
 - [**react-testing-library**](https://www.npmjs.com/package/styled-components)
 
