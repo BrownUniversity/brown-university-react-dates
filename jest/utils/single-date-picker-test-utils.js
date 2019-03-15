@@ -1,4 +1,5 @@
 import moment from "moment";
+import { breakpoints } from "brown-university-styles";
 import { fireEvent } from "react-testing-library";
 
 export const defaultDateFormat = "MM/DD/YYYY";
@@ -13,6 +14,14 @@ export async function makeSingleDatePickerSelection({
   getByLabelText,
   queryByLabelText
 }) {
+  if (global.window.innerWidth < breakpoints.md) {
+    throw new Error(
+      `\`<SingleDatePicker />\` renders as a native date input below a window width of ${
+        breakpoints.md
+      }px.`
+    );
+  }
+
   // input element info
   const isSelection = !!inputElement.value;
   // calendar element info

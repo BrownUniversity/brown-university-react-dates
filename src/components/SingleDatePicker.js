@@ -17,7 +17,6 @@ import ChevronRightSVG from "../svg/chevron-right.svg";
   css mixins
 */
 const inputCSS = css`
-  border: ${({ mobile }) => mobile && "2px solid transparent"};
   box-sizing: border-box;
   color: ${colors.mediumGray};
   display: block;

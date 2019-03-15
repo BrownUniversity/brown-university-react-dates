@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React from "react";
 import moment from "moment";
-import { render } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 import {
   makeSingleDatePickerSelection,
   defaultDateFormat
 } from "single-date-picker-test-utils";
+import { triggerWindowResize, resetWindowSize } from "window-test-utils";
+import { breakpoints } from "brown-university-styles";
 import SingleDatRangeContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
 
@@ -110,6 +112,34 @@ describe("SingleDatePicker", () => {
       });
     });
   });
+
+  describe("mobile", () => {
+    beforeAll(() => {
+      triggerWindowResize({ width: breakpoints.md - 1 });
+    });
+
+    afterAll(() => {
+      resetWindowSize();
+    });
+
+    it("falls back to native date input", () => {
+      const { getByLabelText } = renderSingleDatepicker();
+      expect(getByLabelText("Date")).toHaveAttribute("type", "date");
+      expect(1).toBe(1);
+    });
+
+    it("handles date change", async () => {
+      const { getByLabelText } = renderSingleDatepicker();
+      const inputElement = getByLabelText("Date");
+      const nextValue = today.format("YYYY-MM-DD");
+
+      fireEvent.change(inputElement, {
+        target: { value: nextValue }
+      });
+
+      expect(inputElement.value).toBe(nextValue);
+    });
+  });
 });
 
 describe("makeSingleDatePickerSelection test util", () => {
@@ -154,5 +184,35 @@ describe("makeSingleDatePickerSelection test util", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).not.toHaveBeenCalled();
+  });
+
+  describe("mobile", () => {
+    beforeAll(() => {
+      triggerWindowResize({ width: breakpoints.md - 1 });
+    });
+
+    afterAll(() => {
+      resetWindowSize();
+    });
+
+    it("throws", async () => {
+      const rtlUtils = renderSingleDatepicker();
+      const element = rtlUtils.getByLabelText("Date");
+
+      try {
+        await makeSingleDatePickerSelection({
+          element,
+          date: today,
+          ...rtlUtils,
+          warnings: false
+        });
+      } catch (e) {
+        expect(e).toEqual(
+          new Error(
+            "`<SingleDatePicker />` renders as a native date input below a window width of 768px."
+          )
+        );
+      }
+    });
   });
 });
