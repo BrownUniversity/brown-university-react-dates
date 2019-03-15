@@ -1,29 +1,54 @@
 import PropTypes from "prop-types";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import moment from "moment";
 import { SingleDatePicker as AirbnbSingleDatePicker } from "react-dates";
-import { colors, typography, getRems } from "brown-university-styles";
+import { WindowSize } from "react-fns";
+import {
+  breakpoints,
+  colors,
+  typography,
+  getRems
+} from "brown-university-styles";
 import ChevronLeftSVG from "../svg/chevron-left.svg";
 import ChevronRightSVG from "../svg/chevron-right.svg";
 
 /*
+  css mixins
+*/
+const inputCSS = css`
+  border: ${({ mobile }) => mobile && "2px solid transparent"};
+  box-sizing: border-box;
+  color: ${colors.mediumGray};
+  display: block;
+  font-family: ${typography.sans};
+  font-size: ${getRems(16)};
+  padding: 8px;
+  width: 100%;
+
+  &[type="text"] {
+    padding-top: 9px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+  }
+`;
+
+/*
   inner components
 */
-const Wrapper = styled.div`
+const MobileInput = styled.input`
+  ${inputCSS}
+`;
+
+const DesktopWrapper = styled.div`
   .SingleDatePicker,
   .SingleDatePickerInput,
-  .DateInput,
-  .DateInput_input {
+  .DateInput {
     width: 100%;
   }
 
   .DateInput_input {
-    box-sizing: border-box;
-    color: ${colors.mediumGray};
-    display: block;
-    font-family: ${typography.sans};
-    font-size: ${getRems(16)};
-    padding: 8px;
+    ${inputCSS}
 
     &::before,
     &::after {
@@ -138,19 +163,56 @@ const Wrapper = styled.div`
 */
 const SingleDatePicker = ({
   color,
+  mobileBreakpoint,
   numberOfMonths,
   placeholder,
+  // react-dates...
+  id,
+  date,
+  onDateChange,
   ...restProps
 }) => (
-  <Wrapper color={color}>
-    <AirbnbSingleDatePicker
-      navPrev={<ChevronLeftSVG />}
-      navNext={<ChevronRightSVG />}
-      numberOfMonths={numberOfMonths}
-      placeholder={placeholder}
-      {...restProps}
-    />
-  </Wrapper>
+  <WindowSize
+    render={({ width }) => {
+      // `width` returns 0 on initial render (see `react-fns` issue 84)
+      const currentWidth = width === 0 ? window.innerWidth : width;
+      const renderMobile = currentWidth < mobileBreakpoint;
+
+      if (renderMobile) {
+        const mobileDateFormat = "YYYY-MM-DD";
+
+        return (
+          <MobileInput
+            type="date"
+            id={id}
+            value={date ? date.format(mobileDateFormat) : ""}
+            onChange={e => {
+              if (e.target.value) {
+                onDateChange(moment(e.target.value, mobileDateFormat));
+              } else {
+                onDateChange(null);
+              }
+            }}
+          />
+        );
+      }
+
+      return (
+        <DesktopWrapper color={color}>
+          <AirbnbSingleDatePicker
+            navPrev={<ChevronLeftSVG />}
+            navNext={<ChevronRightSVG />}
+            numberOfMonths={numberOfMonths}
+            placeholder={placeholder}
+            id={id}
+            date={date}
+            onDateChange={onDateChange}
+            {...restProps}
+          />
+        </DesktopWrapper>
+      );
+    }}
+  />
 );
 
 SingleDatePicker.propTypes = {
@@ -162,14 +224,24 @@ SingleDatePicker.propTypes = {
     "navy",
     "idRed"
   ]),
+  mobileBreakpoint: PropTypes.number,
   numberOfMonths: PropTypes.number,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  // react-dates...
+  id: PropTypes.string,
+  date: PropTypes.shape({}),
+  onDateChange: PropTypes.func
 };
 
 SingleDatePicker.defaultProps = {
   color: "red",
+  mobileBreakpoint: breakpoints.md,
   numberOfMonths: 1,
-  placeholder: "MM/DD/YYYY"
+  placeholder: "mm/dd/yyyy",
+  // react-dates...
+  id: null,
+  date: null,
+  onDateChange: null
 };
 
 export default SingleDatePicker;
