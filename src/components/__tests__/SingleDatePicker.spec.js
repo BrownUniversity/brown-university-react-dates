@@ -185,34 +185,4 @@ describe("makeSingleDatePickerSelection test util", () => {
     // eslint-disable-next-line no-console
     expect(console.warn).not.toHaveBeenCalled();
   });
-
-  describe("mobile", () => {
-    beforeAll(() => {
-      triggerWindowResize({ width: breakpoints.md - 1 });
-    });
-
-    afterAll(() => {
-      resetWindowSize();
-    });
-
-    it("throws", async () => {
-      const rtlUtils = renderSingleDatepicker();
-      const element = rtlUtils.getByLabelText("Date");
-
-      try {
-        await makeSingleDatePickerSelection({
-          element,
-          date: today,
-          ...rtlUtils,
-          warnings: false
-        });
-      } catch (e) {
-        expect(e).toEqual(
-          new Error(
-            "`<SingleDatePicker />` renders as a native date input below a window width of 768px."
-          )
-        );
-      }
-    });
-  });
 });
