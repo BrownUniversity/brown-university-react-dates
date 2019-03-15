@@ -35,6 +35,9 @@
     "react-dates": "^20.0.0",
     "styled-components": "^4.0.0"
   },
+  "optionalDependencies": {
+    "react-testing-library": "^6.0.0"
+  },
   "dependencies": {
     "prop-types": "^15.6.2"
   },

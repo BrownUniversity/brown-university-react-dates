@@ -20,6 +20,7 @@ module.exports = {
     moment: "moment",
     react: "react",
     "react-dates": "react-dates",
+    "react-testing-library": "react-testing-library",
     "styled-components": "styled-components",
     "prop-types": "prop-types"
   },

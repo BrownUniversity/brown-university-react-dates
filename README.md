@@ -30,6 +30,12 @@ These libraries are not bundled with Brown University React Dates and are requir
 - [**react-dates**](https://www.npmjs.com/package/react-dates)
 - [**styled-components**](https://www.npmjs.com/package/styled-components)
 
+### Optipnal Peer Dependencies
+
+These libraries are not bundled with Brown University React Dates, but are required if using any of the testing utilities:
+
+- [**react-testing-library**](https://www.npmjs.com/package/styled-components)
+
 ### 2. Import styles from Brown University Styles
 
 ### 3. Configure React Dates
