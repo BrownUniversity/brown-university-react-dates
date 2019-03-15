@@ -1,22 +1,33 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React from "react";
+import moment from "moment";
 import { render } from "react-testing-library";
+import {
+  makeSingleDatePickerSelection,
+  defaultDateFormat
+} from "single-date-picker-test-utils";
 import SingleDatRangeContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
 
+// react-dates renders a month to either side of the currently visible month(s)
 /*
-  Notes:
-  - previous button has aria-label="Move backward to switch to the previous month."
-  - next button has aria-label="Move backward to switch to the previous month."
-  - dates have aria-label="Friday, March 1, 2019"
-  - blocked out dates have aria-label="Not available. Tuesday, February 12, 2019"
+const oneYearAgo = moment().subtract(1, "year");
+const sixMonthsAgo = moment().subtract(6, "months");
+const lastWeek = moment().subtract(1, "week");
+*/
+const today = moment();
+const nextWeek = moment().add(1, "week");
+/*
+const sixMonthsFromNow = moment().add(6, "months");
+const oneYearFromNow = moment().add(1, "year");
 */
 
 const renderSingleDatepicker = props => {
+  const id = "single-date-picker-test";
   const rtlUtils = render(
     <>
-      <label htmlFor="single-date-picker-test">Date</label>
-      <SingleDatRangeContainer id="single-date-picker-test" {...props}>
+      <label htmlFor={id}>Date</label>
+      <SingleDatRangeContainer id={id} {...props}>
         <SingleDatePicker />
       </SingleDatRangeContainer>
     </>
@@ -26,9 +37,36 @@ const renderSingleDatepicker = props => {
 };
 
 describe("SingleDatePicker", () => {
-  // WIP
-  it("renders", () => {
-    const { getByLabelText } = renderSingleDatepicker();
-    expect(getByLabelText("Date")).toBeInTheDocument(1);
+  describe("one month", () => {
+    describe("with initial date", () => {
+      it("updates", async () => {
+        const rtlUtils = renderSingleDatepicker({
+          initialDate: today
+        });
+        const inputElement = rtlUtils.getByLabelText("Date");
+
+        await makeSingleDatePickerSelection({
+          element: inputElement,
+          date: nextWeek,
+          ...rtlUtils
+        });
+
+        expect(inputElement.value).toBe(nextWeek.format(defaultDateFormat));
+      });
+    });
+
+    describe("without initial date", () => {
+      // TODO
+    });
+  });
+
+  describe("two months", () => {
+    describe("with initial date", () => {
+      // TODO
+    });
+
+    describe("without initial date", () => {
+      // TODO
+    });
   });
 });
