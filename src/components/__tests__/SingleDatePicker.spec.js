@@ -2,14 +2,11 @@
 import React from "react";
 import moment from "moment";
 import { render } from "react-testing-library";
-import {
-  makeSingleDatePickerSelection,
-  defaultDateFormat
-} from "single-date-picker-test-utils";
 import { triggerWindowResize, resetWindowSize } from "window-test-utils";
 import { breakpoints } from "brown-university-styles";
 import SingleDatePickerContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
+import singleDatePickerTestUtils from "../../test-utils/single-date-picker";
 
 // `react-dates` renders a month to either side of the currently visible month(s)
 const oneYearAgo = moment().subtract(1, "year");
@@ -40,13 +37,15 @@ describe("SingleDatePicker", () => {
     const rtlUtils = renderSingleDatepicker(props);
     const element = rtlUtils.getByLabelText("Date");
 
-    await makeSingleDatePickerSelection({
+    await singleDatePickerTestUtils.makeSelection({
       element,
       date,
       ...rtlUtils
     });
 
-    expect(element.value).toBe(date.format(defaultDateFormat));
+    expect(element.value).toBe(
+      date.format(singleDatePickerTestUtils.defaultDateFormat)
+    );
   };
 
   describe("one month", () => {
@@ -132,7 +131,7 @@ describe("SingleDatePicker", () => {
       const element = rtlUtils.getByLabelText("Date");
       const nextValue = today.format("YYYY-MM-DD");
 
-      await makeSingleDatePickerSelection({
+      await singleDatePickerTestUtils.makeSelection({
         element,
         date: today,
         ...rtlUtils
@@ -156,7 +155,7 @@ describe("makeSingleDatePickerSelection test util", () => {
     const rtlUtils = renderSingleDatepicker();
     const element = rtlUtils.getByLabelText("Date");
 
-    await makeSingleDatePickerSelection({
+    await singleDatePickerTestUtils.makeSelection({
       element,
       date: yesterday,
       ...rtlUtils
@@ -176,7 +175,7 @@ describe("makeSingleDatePickerSelection test util", () => {
     const rtlUtils = renderSingleDatepicker();
     const element = rtlUtils.getByLabelText("Date");
 
-    await makeSingleDatePickerSelection({
+    await singleDatePickerTestUtils.makeSelection({
       element,
       date: yesterday,
       ...rtlUtils,
