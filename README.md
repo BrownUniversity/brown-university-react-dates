@@ -1,39 +1,47 @@
-# Brown University Datepicker
+# Brown University React Dates
 
-A datepicker for React-based applications at Brown University.
-
-_On-prem Bitbucket doesn't render markdown very nicely; view this in a markdown editor like [Dillinger](https://dillinger.io/)._
+A wrapped implementation of Airbnb's [`react-dates`](https://github.com/airbnb/react-dates) plus some test utils for use in React-based applications at Brown University.
 
 ---
 
-## Install
+## Usage
 
-### Add Brown University Datepicker
+### 1. Install packages
 
-```
-  // npm
-  npm i git+https://bitbucket.brown.edu/scm/react/brown-university-datepicker.git#semver:^0.1
-  // yarn
-  yarn add git+https://bitbucket.brown.edu/scm/react/brown-university-datepicker.git#^0.1
+#### Brown University React Dates
+
+```sh
+// npm
+npm i git+https://bitbucket.brown.edu/scm/react/brown-university-react-dates.git#semver:^0.1
+
+// yarn
+yarn add git+https://bitbucket.brown.edu/scm/react/brown-university-react-dates.git#^0.1
 ```
 
 _Ensure you're on the network and that your SSH key has been added to the ssh-agent (`ssh-add ~/.ssh/id_rsa`) and uploaded to [bitbucket.brown.edu](https://bitbucket.brown.edu/plugins/servlet/ssh/account/keys)._
 
-### Dependencies
-
 #### Required Peer Dependencies
 
-These libraries are not bundled with Brown University Datepicker and are required at runtime:
+These libraries are not bundled with Brown University React Dates and are required at runtime:
 
 - [**brown-university-styles**](https://bitbucket.brown.edu/projects/REACT/repos/brown-university-styles)
+- [**moment**](https://www.npmjs.com/package/moment)
 - [**react**](https://www.npmjs.com/package/react)
+- [**react-dates**](https://www.npmjs.com/package/react-dates)
 - [**styled-components**](https://www.npmjs.com/package/styled-components)
 
+### Optipnal Peer Dependencies
+
+These libraries are not bundled with Brown University React Dates, but are required to use the test utils:
+
+- [**jest-dom**](https://www.npmjs.com/package/jest-dom)
+- [**react-testing-library**](https://www.npmjs.com/package/styled-components)
+
+### 2. Import styles from Brown University Styles
+
+### 3. Configure React Dates
+
 ---
-
-## Documentation
-
-TODO
 
 ## Development
 
@@ -72,3 +80,17 @@ Watch tests:
 ```sh
 npm run test:watch
 ```
+
+---
+
+## Deployment
+
+To publish a new version, do the following:
+
+1. Bump version in `package.json` and `package-lock.json`
+2. Bump version in `README.md` install instructions (for major and minor version bumps only)
+3. Update `CHANGELOG.md`
+4. `npm run build`
+5. Commit changes
+6. Tag new version
+7. Push master and tags to all remotes
