@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React from "react";
 import moment from "moment";
-import { render, fireEvent } from "react-testing-library";
+import { render } from "react-testing-library";
 import {
   makeSingleDatePickerSelection,
   defaultDateFormat
 } from "single-date-picker-test-utils";
 import { triggerWindowResize, resetWindowSize } from "window-test-utils";
 import { breakpoints } from "brown-university-styles";
-import SingleDatRangeContainer from "../utils/SingleDatePickerContainer";
+import SingleDatePickerContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
 
 // `react-dates` renders a month to either side of the currently visible month(s)
@@ -26,9 +26,9 @@ const renderSingleDatepicker = props => {
   const rtlUtils = render(
     <>
       <label htmlFor={id}>Date</label>
-      <SingleDatRangeContainer id={id} {...props}>
+      <SingleDatePickerContainer id={id} {...props}>
         <SingleDatePicker />
-      </SingleDatRangeContainer>
+      </SingleDatePickerContainer>
     </>
   );
 
@@ -125,19 +125,20 @@ describe("SingleDatePicker", () => {
     it("falls back to native date input", () => {
       const { getByLabelText } = renderSingleDatepicker();
       expect(getByLabelText("Date")).toHaveAttribute("type", "date");
-      expect(1).toBe(1);
     });
 
     it("handles date change", async () => {
-      const { getByLabelText } = renderSingleDatepicker();
-      const inputElement = getByLabelText("Date");
+      const rtlUtils = renderSingleDatepicker();
+      const element = rtlUtils.getByLabelText("Date");
       const nextValue = today.format("YYYY-MM-DD");
 
-      fireEvent.change(inputElement, {
-        target: { value: nextValue }
+      await makeSingleDatePickerSelection({
+        element,
+        date: today,
+        ...rtlUtils
       });
 
-      expect(inputElement.value).toBe(nextValue);
+      expect(element.value).toBe(nextValue);
     });
   });
 });

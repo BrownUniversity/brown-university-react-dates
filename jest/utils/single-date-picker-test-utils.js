@@ -1,24 +1,32 @@
 import moment from "moment";
+import { breakpoints } from "brown-university-styles";
 import { fireEvent } from "react-testing-library";
 
 export const defaultDateFormat = "MM/DD/YYYY";
-
-/*
-  NOTE: The `makeSingleDatePickerSelection` utility does not work with the
-  native date input fallback, which--by default--will render below 768px.
-  This breakpoint can be overridden with the `mobileBreakpoint` prop.
-*/
 
 export async function makeSingleDatePickerSelection({
   element: inputElement,
   date: nextSelectionDate,
   format: nextSelectionFormat = defaultDateFormat,
+  isMobile = global.window.innerWidth < breakpoints.md,
   warnings = true,
   // react-testing-library...
   getByText,
   getByLabelText,
   queryByLabelText
 }) {
+  /*
+    mobile
+  */
+  if (isMobile) {
+    return fireEvent.change(inputElement, {
+      target: { value: nextSelectionDate.format("YYYY-MM-DD") }
+    });
+  }
+
+  /*
+    desktop
+  */
   // input element info
   const isSelection = !!inputElement.value;
   // calendar element info
@@ -82,4 +90,6 @@ export async function makeSingleDatePickerSelection({
     // blur input
     inputElement.blur();
   }
+
+  return undefined;
 }
