@@ -1,9 +1,9 @@
 import moment from "moment";
 import { fireEvent } from "react-testing-library";
 
-export const defaultDateFormat = "MM/DD/YYYY";
+const defaultDateFormat = "MM/DD/YYYY";
 
-export async function makeSingleDatePickerSelection({
+async function makeSelection({
   element: inputElement,
   date: nextSelectionDate,
   format: nextSelectionFormat = defaultDateFormat,
@@ -91,3 +91,8 @@ export async function makeSingleDatePickerSelection({
 
   return undefined;
 }
+
+export default {
+  defaultDateFormat,
+  makeSelection
+};
