@@ -36,6 +36,7 @@
     "styled-components": "^4.0.0"
   },
   "optionalDependencies": {
+    "jest-dom": "^3.1.2",
     "react-testing-library": "^6.0.0"
   },
   "dependencies": {

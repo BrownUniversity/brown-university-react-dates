@@ -1,5 +1,4 @@
 import moment from "moment";
-import { breakpoints } from "brown-university-styles";
 import { fireEvent } from "react-testing-library";
 
 export const defaultDateFormat = "MM/DD/YYYY";
@@ -8,7 +7,6 @@ export async function makeSingleDatePickerSelection({
   element: inputElement,
   date: nextSelectionDate,
   format: nextSelectionFormat = defaultDateFormat,
-  isMobile = global.window.innerWidth < breakpoints.md,
   warnings = true,
   // react-testing-library...
   getByText,
@@ -16,16 +14,16 @@ export async function makeSingleDatePickerSelection({
   queryByLabelText
 }) {
   /*
-    mobile
+    mobile fallback
   */
-  if (isMobile) {
+  if (inputElement.type === "date") {
     return fireEvent.change(inputElement, {
       target: { value: nextSelectionDate.format("YYYY-MM-DD") }
     });
   }
 
   /*
-    desktop
+    datepicker
   */
   // input element info
   const isSelection = !!inputElement.value;
