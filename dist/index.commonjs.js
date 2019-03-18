@@ -1,14 +1,14 @@
-/*! brown-university-react-dates v0.1.0 */
+/*! brown-university-react-dates v0.1.1 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("moment"), require("react-testing-library"), require("prop-types"), require("react"), require("styled-components"), require("react-dates"), require("brown-university-styles"));
+		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library"));
 	else if(typeof define === 'function' && define.amd)
-		define(["moment", "react-testing-library", "prop-types", "react", "styled-components", "react-dates", "brown-university-styles"], factory);
+		define(["prop-types", "react", "styled-components", "moment", "react-dates", "brown-university-styles", "react-testing-library"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("moment"), require("react-testing-library"), require("prop-types"), require("react"), require("styled-components"), require("react-dates"), require("brown-university-styles")) : factory(root["moment"], root["react-testing-library"], root["prop-types"], root["react"], root["styled-components"], root["react-dates"], root["brown-university-styles"]);
+		var a = typeof exports === 'object' ? factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library")) : factory(root["prop-types"], root["react"], root["styled-components"], root["moment"], root["react-dates"], root["brown-university-styles"], root["react-testing-library"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(window, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__17__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__15__, __WEBPACK_EXTERNAL_MODULE__19__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -101,17 +101,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return singleDatePickerTestUtils; });
-/* harmony import */ var _jest_utils_single_date_picker_test_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _components_SingleDatePicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SingleDatePicker", function() { return _components_SingleDatePicker__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+/* harmony import */ var _components_SingleDatePicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SingleDatePicker", function() { return _components_SingleDatePicker__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 
 
-var singleDatePickerTestUtils = {
-  makeSelection: _jest_utils_single_date_picker_test_utils__WEBPACK_IMPORTED_MODULE_0__["makeSingleDatePickerSelection"],
-  defaultDateFormat: _jest_utils_single_date_picker_test_utils__WEBPACK_IMPORTED_MODULE_0__["defaultDateFormat"]
-};
 
 /***/ }),
 /* 1 */
@@ -119,152 +116,21 @@ var singleDatePickerTestUtils = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultDateFormat", function() { return defaultDateFormat; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeSingleDatePickerSelection", function() { return makeSingleDatePickerSelection; });
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_testing_library__WEBPACK_IMPORTED_MODULE_1__);
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-var defaultDateFormat = "MM/DD/YYYY";
-function makeSingleDatePickerSelection(_x) {
-  return _makeSingleDatePickerSelection.apply(this, arguments);
-}
-
-function _makeSingleDatePickerSelection() {
-  _makeSingleDatePickerSelection = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee(_ref) {
-    var inputElement, nextSelectionDate, _ref$format, nextSelectionFormat, _ref$warnings, warnings, getByText, getByLabelText, queryByLabelText, isSelection, calendarAriaLabelText, navPrevAriaLabelText, navNextAriaLabelText, monthLabelFormat, dateAriaLabelFormat, currentSelectionMoment, nextSelectionMoment, isNextSelectionMonthVisible, handleMonthNavigation, nextSelectionLabelText;
-
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            inputElement = _ref.element, nextSelectionDate = _ref.date, _ref$format = _ref.format, nextSelectionFormat = _ref$format === void 0 ? defaultDateFormat : _ref$format, _ref$warnings = _ref.warnings, warnings = _ref$warnings === void 0 ? true : _ref$warnings, getByText = _ref.getByText, getByLabelText = _ref.getByLabelText, queryByLabelText = _ref.queryByLabelText;
-
-            if (!(inputElement.type === "date")) {
-              _context.next = 3;
-              break;
-            }
-
-            return _context.abrupt("return", react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
-              target: {
-                value: nextSelectionDate.format("YYYY-MM-DD")
-              }
-            }));
-
-          case 3:
-            /*
-              datepicker
-            */
-            // input element info
-            isSelection = !!inputElement.value; // calendar element info
-
-            calendarAriaLabelText = "Calendar";
-            navPrevAriaLabelText = "Move backward to switch to the previous month.";
-            navNextAriaLabelText = "Move forward to switch to the next month.";
-            monthLabelFormat = "MMMM YYYY";
-            dateAriaLabelFormat = "dddd, MMMM D, YYYY"; // moment objects
-
-            currentSelectionMoment = isSelection ? moment__WEBPACK_IMPORTED_MODULE_0___default()(inputElement.value, defaultDateFormat) : moment__WEBPACK_IMPORTED_MODULE_0___default()();
-            nextSelectionMoment = moment__WEBPACK_IMPORTED_MODULE_0___default()(nextSelectionDate, nextSelectionFormat); // navigation helpers
-
-            isNextSelectionMonthVisible = function isNextSelectionMonthVisible() {
-              try {
-                getByText(nextSelectionMoment.format(monthLabelFormat));
-                return true;
-              } catch (e) {
-                return false;
-              }
-            };
-
-            handleMonthNavigation = function handleMonthNavigation() {
-              if (nextSelectionMoment.isBefore(currentSelectionMoment, "month")) {
-                react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navPrevAriaLabelText));
-              } else {
-                react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navNextAriaLabelText));
-              }
-            }; // focus input (opens calendar)
-
-
-            inputElement.focus(); // validate calendar is open
-
-            expect(getByLabelText(calendarAriaLabelText)).toBeInTheDocument(); // navigate to next selection month
-
-            while (!isNextSelectionMonthVisible()) {
-              handleMonthNavigation();
-            } // attempt next selection...
-
-
-            nextSelectionLabelText = nextSelectionMoment.format(dateAriaLabelFormat);
-
-            try {
-              // make next selection
-              react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(nextSelectionLabelText)); // validate calendar is closed
-
-              expect(queryByLabelText(calendarAriaLabelText)).not.toBeInTheDocument();
-            } catch (e) {
-              // warn consumer if they have not disabled warnings
-              if (warnings) {
-                // eslint-disable-next-line no-console
-                console.warn("Unable to select `date` with aria-label \"".concat(nextSelectionLabelText, "\". If this is the expected result, then set `warnings` to false in this call to `makeSingleDatePickerSelection`."));
-              }
-            } finally {
-              // blur input
-              inputElement.blur();
-            }
-
-            return _context.abrupt("return", undefined);
-
-          case 19:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _makeSingleDatePickerSelection.apply(this, arguments);
-}
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var brown_university_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(17);
+/* harmony import */ var react_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var brown_university_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
 /* harmony import */ var brown_university_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _svg_chevron_left_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(18);
-/* harmony import */ var _svg_chevron_right_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(19);
+/* harmony import */ var _svg_chevron_left_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(16);
+/* harmony import */ var _svg_chevron_right_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(17);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -384,6 +250,24 @@ SingleDatePicker.defaultProps = {
 /* harmony default export */ __webpack_exports__["default"] = (SingleDatePicker);
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__4__;
+
+/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
@@ -397,18 +281,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__6__;
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__7__;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__8__;
-
-/***/ }),
-/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -428,7 +300,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withWindowSize", function() { return withWindowSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Locales", function() { return Locales; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withLocales", function() { return withLocales; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -800,7 +672,7 @@ function withGeoPosition(Component$$1) {
     return hoistNonReactStatics(S, Component$$1);
 }
 
-var M = __webpack_require__(10);
+var M = __webpack_require__(8);
 var Media = M;
 
 var WindowSize = (function (_super) {
@@ -896,21 +768,21 @@ function withLocales(Component$$1) {
 
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
-/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var invariant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
+/* harmony import */ var invariant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
 /* harmony import */ var invariant__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(invariant__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var json2mq__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
+/* harmony import */ var json2mq__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var json2mq__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(json2mq__WEBPACK_IMPORTED_MODULE_6__);
 
 
@@ -1040,7 +912,7 @@ if (true) {
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1053,7 +925,7 @@ function _inheritsLoose(subClass, superClass) {
 }
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1068,7 +940,7 @@ function _assertThisInitialized(self) {
 }
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1090,7 +962,7 @@ function _defineProperty(obj, key, value) {
 }
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1146,10 +1018,10 @@ module.exports = invariant;
 
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var camel2hyphen = __webpack_require__(16);
+var camel2hyphen = __webpack_require__(14);
 
 var isDimension = function (feature) {
   var re = /[height|width]$/;
@@ -1202,7 +1074,7 @@ var json2mq = function (query) {
 module.exports = json2mq;
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports) {
 
 var camel2hyphen = function (str) {
@@ -1216,18 +1088,18 @@ var camel2hyphen = function (str) {
 module.exports = camel2hyphen;
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__17__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__15__;
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1252,12 +1124,12 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 });
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1280,6 +1152,135 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
     )
   );
 });
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
+/* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_testing_library__WEBPACK_IMPORTED_MODULE_1__);
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var defaultDateFormat = "MM/DD/YYYY";
+
+function makeSelection(_x) {
+  return _makeSelection.apply(this, arguments);
+}
+
+function _makeSelection() {
+  _makeSelection = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(_ref) {
+    var inputElement, nextSelectionDate, _ref$format, nextSelectionFormat, _ref$warnings, warnings, getByText, getByLabelText, queryByLabelText, isSelection, calendarAriaLabelText, navPrevAriaLabelText, navNextAriaLabelText, monthLabelFormat, dateAriaLabelFormat, currentSelectionMoment, nextSelectionMoment, isNextSelectionMonthVisible, handleMonthNavigation, nextSelectionLabelText;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            inputElement = _ref.element, nextSelectionDate = _ref.date, _ref$format = _ref.format, nextSelectionFormat = _ref$format === void 0 ? defaultDateFormat : _ref$format, _ref$warnings = _ref.warnings, warnings = _ref$warnings === void 0 ? true : _ref$warnings, getByText = _ref.getByText, getByLabelText = _ref.getByLabelText, queryByLabelText = _ref.queryByLabelText;
+
+            if (!(inputElement.type === "date")) {
+              _context.next = 3;
+              break;
+            }
+
+            return _context.abrupt("return", react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
+              target: {
+                value: nextSelectionDate.format("YYYY-MM-DD")
+              }
+            }));
+
+          case 3:
+            /*
+              datepicker
+            */
+            // input element info
+            isSelection = !!inputElement.value; // calendar element info
+
+            calendarAriaLabelText = "Calendar";
+            navPrevAriaLabelText = "Move backward to switch to the previous month.";
+            navNextAriaLabelText = "Move forward to switch to the next month.";
+            monthLabelFormat = "MMMM YYYY";
+            dateAriaLabelFormat = "dddd, MMMM D, YYYY"; // moment objects
+
+            currentSelectionMoment = isSelection ? moment__WEBPACK_IMPORTED_MODULE_0___default()(inputElement.value, defaultDateFormat) : moment__WEBPACK_IMPORTED_MODULE_0___default()();
+            nextSelectionMoment = moment__WEBPACK_IMPORTED_MODULE_0___default()(nextSelectionDate, nextSelectionFormat); // navigation helpers
+
+            isNextSelectionMonthVisible = function isNextSelectionMonthVisible() {
+              try {
+                getByText(nextSelectionMoment.format(monthLabelFormat));
+                return true;
+              } catch (e) {
+                return false;
+              }
+            };
+
+            handleMonthNavigation = function handleMonthNavigation() {
+              if (nextSelectionMoment.isBefore(currentSelectionMoment, "month")) {
+                react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navPrevAriaLabelText));
+              } else {
+                react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navNextAriaLabelText));
+              }
+            }; // focus input (opens calendar)
+
+
+            inputElement.focus(); // validate calendar is open
+
+            expect(getByLabelText(calendarAriaLabelText)).toBeInTheDocument(); // navigate to next selection month
+
+            while (!isNextSelectionMonthVisible()) {
+              handleMonthNavigation();
+            } // attempt next selection...
+
+
+            nextSelectionLabelText = nextSelectionMoment.format(dateAriaLabelFormat);
+
+            try {
+              // make next selection
+              react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(nextSelectionLabelText)); // validate calendar is closed
+
+              expect(queryByLabelText(calendarAriaLabelText)).not.toBeInTheDocument();
+            } catch (e) {
+              // warn consumer if they have not disabled warnings
+              if (warnings) {
+                // eslint-disable-next-line no-console
+                console.warn("Unable to select `date` with aria-label \"".concat(nextSelectionLabelText, "\". If this is the expected result, then set `warnings` to false in this call to `makeSingleDatePickerSelection`."));
+              }
+            } finally {
+              // blur input
+              inputElement.blur();
+            }
+
+            return _context.abrupt("return", undefined);
+
+          case 19:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _makeSelection.apply(this, arguments);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  defaultDateFormat: defaultDateFormat,
+  makeSelection: makeSelection
+});
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__19__;
 
 /***/ })
 /******/ ]);
