@@ -95,18 +95,24 @@ const DesktopWrapper = styled.div`
     }
   }
 
-  .CalendarDay__default {
+  .CalendarDay,
+  .CalendarDay:hover {
     border: none;
+  }
+
+  .CalendarDay__default {
     color: ${colors.black};
     font-family: ${typography.sans};
     font-weight: bold;
   }
 
-  .CalendarDay__blocked_out_of_range {
+  .CalendarDay__blocked_out_of_range,
+  .CalendarDay__blocked_out_of_range:hover {
     color: ${colors.mediumGray};
   }
 
-  .CalendarDay__selected {
+  .CalendarDay__selected,
+  .CalendarDay__selected:hover {
     background-color: ${({ color }) => colors[color]};
     border-radius: 20px;
     color: ${colors.white};
@@ -122,14 +128,16 @@ const DesktopWrapper = styled.div`
     }
   }
 
-  .CalendarDay__blocked_calendar {
+  .CalendarDay__blocked_calendar,
+  .CalendarDay__blocked_calendar:hover {
     &:not(.CalendarDay__blocked_out_of_range) {
       color: ${colors.mediumGray};
       background-color: ${colors.transparentBlack};
     }
   }
 
-  .DayPickerKeyboardShortcuts_show::before {
+  .DayPickerKeyboardShortcuts_show::before,
+  .DayPickerKeyboardShortcuts_show:hover::before {
     border-right: 33px solid ${({ color }) => colors[color]};
   }
 
