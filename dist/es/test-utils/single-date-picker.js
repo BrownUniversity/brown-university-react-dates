@@ -22,8 +22,20 @@ function _makeSelection() {
           case 0:
             inputElement = _ref.element, nextSelectionDate = _ref.date, _ref$format = _ref.format, nextSelectionFormat = _ref$format === void 0 ? defaultDateFormat : _ref$format, _ref$warnings = _ref.warnings, warnings = _ref$warnings === void 0 ? true : _ref$warnings, getByText = _ref.getByText, getByLabelText = _ref.getByLabelText, queryByLabelText = _ref.queryByLabelText;
 
-            if (!(inputElement.type === "date")) {
+            if (nextSelectionDate) {
               _context.next = 3;
+              break;
+            }
+
+            return _context.abrupt("return", fireEvent.change(inputElement, {
+              target: {
+                value: ""
+              }
+            }));
+
+          case 3:
+            if (!(inputElement.type === "date")) {
+              _context.next = 5;
               break;
             }
 
@@ -33,9 +45,9 @@ function _makeSelection() {
               }
             }));
 
-          case 3:
+          case 5:
             /*
-              datepicker
+              handle date selection via datepicker
             */
             // input element info
             isSelection = !!inputElement.value; // calendar element info
@@ -87,7 +99,7 @@ function _makeSelection() {
               // warn consumer if they have not disabled warnings
               if (warnings) {
                 // eslint-disable-next-line no-console
-                console.warn("Unable to select `date` with aria-label \"".concat(nextSelectionLabelText, "\". If this is the expected result, then set `warnings` to false in this call to `makeSingleDatePickerSelection`."));
+                console.warn("Unable to select `date` with aria-label \"".concat(nextSelectionLabelText, "\". If this is the expected result, then set `warnings` to false in this call to `singleDatePickerTestUtils.makeSelection`."));
               }
             } finally {
               // blur input
@@ -96,7 +108,7 @@ function _makeSelection() {
 
             return _context.abrupt("return", undefined);
 
-          case 19:
+          case 21:
           case "end":
             return _context.stop();
         }
