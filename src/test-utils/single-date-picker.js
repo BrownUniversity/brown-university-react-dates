@@ -14,7 +14,16 @@ async function makeSelection({
   queryByLabelText
 }) {
   /*
-    mobile fallback
+    handle empty date selection
+  */
+  if (!nextSelectionDate) {
+    return fireEvent.change(inputElement, {
+      target: { value: "" }
+    });
+  }
+
+  /*
+    handle date selection via mobile fallback
   */
   if (inputElement.type === "date") {
     return fireEvent.change(inputElement, {
@@ -23,7 +32,7 @@ async function makeSelection({
   }
 
   /*
-    datepicker
+    handle date selection via datepicker
   */
   // input element info
   const isSelection = !!inputElement.value;
@@ -81,7 +90,7 @@ async function makeSelection({
     if (warnings) {
       // eslint-disable-next-line no-console
       console.warn(
-        `Unable to select \`date\` with aria-label "${nextSelectionLabelText}". If this is the expected result, then set \`warnings\` to false in this call to \`makeSingleDatePickerSelection\`.`
+        `Unable to select \`date\` with aria-label "${nextSelectionLabelText}". If this is the expected result, then set \`warnings\` to false in this call to \`singleDatePickerTestUtils.makeSelection\`.`
       );
     }
   } finally {
