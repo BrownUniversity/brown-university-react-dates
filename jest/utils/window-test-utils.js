@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const triggerWindowResize = ({
   width = global.window.innerWidth,
   height = global.window.innerHeight

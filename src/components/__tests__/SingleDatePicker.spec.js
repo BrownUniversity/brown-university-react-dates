@@ -142,47 +142,64 @@ describe("SingleDatePicker", () => {
   });
 });
 
-describe("makeSingleDatePickerSelection test util", () => {
-  beforeEach(() => {
-    global.console = { warn: jest.fn() };
+describe("singleDatePickerTestUtils", () => {
+  describe("empty date", () => {
+    it("handles gracefully", async () => {
+      const rtlUtils = renderSingleDatepicker({ initialDate: today });
+      const element = rtlUtils.getByLabelText("Date");
+
+      await singleDatePickerTestUtils.makeSelection({
+        element,
+        date: "",
+        ...rtlUtils
+      });
+
+      expect(element.value).toBe("");
+    });
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it("handles blocked dates gracefully with warning", async () => {
-    const rtlUtils = renderSingleDatepicker();
-    const element = rtlUtils.getByLabelText("Date");
-
-    await singleDatePickerTestUtils.makeSelection({
-      element,
-      date: yesterday,
-      ...rtlUtils
+  describe("blocked date", () => {
+    beforeEach(() => {
+      global.console = { warn: jest.fn() };
     });
 
-    /* eslint-disable no-console */
-    expect(console.warn).toHaveBeenCalledTimes(1);
-    expect(console.warn).toHaveBeenCalledWith(
-      `Unable to select \`date\` with aria-label "${yesterday.format(
-        "dddd, MMMM D, YYYY"
-      )}". If this is the expected result, then set \`warnings\` to false in this call to \`makeSingleDatePickerSelection\`.`
-    );
-    /* eslint-enable no-console */
-  });
-
-  it("handles blocked dates gracefully without warning", async () => {
-    const rtlUtils = renderSingleDatepicker();
-    const element = rtlUtils.getByLabelText("Date");
-
-    await singleDatePickerTestUtils.makeSelection({
-      element,
-      date: yesterday,
-      ...rtlUtils,
-      warnings: false
+    afterEach(() => {
+      jest.clearAllMocks();
     });
 
-    // eslint-disable-next-line no-console
-    expect(console.warn).not.toHaveBeenCalled();
+    it("handles gracefully with warning", async () => {
+      const rtlUtils = renderSingleDatepicker();
+      const element = rtlUtils.getByLabelText("Date");
+
+      await singleDatePickerTestUtils.makeSelection({
+        element,
+        date: yesterday,
+        ...rtlUtils
+      });
+
+      /* eslint-disable no-console */
+      expect(console.warn).toHaveBeenCalledTimes(1);
+      expect(console.warn).toHaveBeenCalledWith(
+        `Unable to select \`date\` with aria-label "${yesterday.format(
+          "dddd, MMMM D, YYYY"
+        )}". If this is the expected result, then set \`warnings\` to false in this call to \`singleDatePickerTestUtils.makeSelection\`.`
+      );
+      /* eslint-enable no-console */
+    });
+
+    it("handles gracefully without warning", async () => {
+      const rtlUtils = renderSingleDatepicker();
+      const element = rtlUtils.getByLabelText("Date");
+
+      await singleDatePickerTestUtils.makeSelection({
+        element,
+        date: yesterday,
+        ...rtlUtils,
+        warnings: false
+      });
+
+      // eslint-disable-next-line no-console
+      expect(console.warn).not.toHaveBeenCalled();
+    });
   });
 });
