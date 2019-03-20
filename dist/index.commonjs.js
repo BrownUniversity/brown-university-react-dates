@@ -1,4 +1,4 @@
-/*! brown-university-react-dates v0.1.3 */
+/*! brown-university-react-dates v0.1.4 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library"));
