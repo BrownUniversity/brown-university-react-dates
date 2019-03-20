@@ -9,8 +9,8 @@
   "module": "dist/es/index.js",
   "sideEffects": "false",
   "scripts": {
-    "lint": "eslint src",
-    "prettier": "prettier \"{src,__{tests,mocks}__}/**/*.+(js|json|css)\"",
+    "lint": "eslint src stories",
+    "prettier": "prettier \"{src, stories,__{tests,mocks}__}/**/*.+(js|json|css)\"",
     "format:check": "npm run prettier -- --list-different",
     "format:fix": "npm run prettier -- --write",
     "test": "BABEL_ENV=commonjs jest --config ./jest/config.js",
