@@ -43,6 +43,14 @@ These libraries are not bundled with Brown University React Dates, but are requi
 
 ---
 
+## Documentation
+
+See [http://docs.webservices.brown.edu/dates](http://docs.webservices.brown.edu/dates).
+
+_Ensure you're on the network and that `10.55.29.58 docs.webservices.brown.edu` has been added to your hosts file._
+
+---
+
 ## Development
 
 Install dependencies:
