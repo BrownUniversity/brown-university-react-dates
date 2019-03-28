@@ -1,7 +1,8 @@
 import React from "react";
 import moment from "moment";
+import { breakpoints } from "brown-university-styles";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, select } from "@storybook/addon-knobs";
+import { withKnobs, select, number } from "@storybook/addon-knobs";
 import SingleDatePickerContainer from "../src/components/utils/SingleDatePickerContainer";
 import { SingleDatePicker } from "../src";
 
@@ -13,7 +14,8 @@ const getCommonProps = () => ({
     "skyBlue",
     "navy",
     "idRed"
-  ])
+  ]),
+  mobileBreakpoint: number("mobileBreakpoint", breakpoints.md)
 });
 
 const renderSingleDatePicker = additionalProps => (
