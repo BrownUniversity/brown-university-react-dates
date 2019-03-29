@@ -8,13 +8,13 @@ import React, { useState } from "react";
 
 const SingleDatePickerContainer = ({
   id = "single-date-picker",
-  initialDate = null,
-  initialFocus = false,
+  date: initialDate = null,
+  focused: initialFocused = false,
   children,
   ...restProps
 }) => {
   const [date, setDate] = useState(initialDate);
-  const [focused, setFocused] = useState(initialFocus);
+  const [focused, setFocused] = useState(initialFocused);
 
   const onDateChange = nextDate => {
     setDate(nextDate);
