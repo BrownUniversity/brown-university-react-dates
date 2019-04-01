@@ -4,6 +4,7 @@ import { breakpoints } from "brown-university-styles";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select, number } from "@storybook/addon-knobs";
 import SingleDatePickerContainer from "../src/components/utils/SingleDatePickerContainer";
+import SingleDatePickerContainerWithValidation from "./components/SingleDatePickerContainerWithValidation";
 import { SingleDatePicker } from "../src";
 
 const getCommonProps = () => ({
@@ -42,4 +43,9 @@ storiesOf("SingleDatePicker", module)
       isDayBlocked: day =>
         ["Saturday", "Sunday"].includes(moment.weekdays(day.weekday()))
     })
-  );
+  )
+  .add("with validation", () => (
+    <SingleDatePickerContainerWithValidation {...getCommonProps()}>
+      <SingleDatePicker />
+    </SingleDatePickerContainerWithValidation>
+  ));

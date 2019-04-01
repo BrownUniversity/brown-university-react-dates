@@ -177,6 +177,7 @@ const SingleDatePicker = ({
   id,
   date,
   onDateChange,
+  onFocusChange,
   ...restProps
 }) => (
   <WindowSize
@@ -197,9 +198,11 @@ const SingleDatePicker = ({
               if (e.target.value) {
                 onDateChange(moment(e.target.value, mobileDateFormat));
               } else {
+                // handle invalid date
                 onDateChange(null);
               }
             }}
+            onBlur={() => onFocusChange({ focused: false })}
           />
         );
       }
@@ -214,6 +217,7 @@ const SingleDatePicker = ({
             id={id}
             date={date}
             onDateChange={onDateChange}
+            onFocusChange={onFocusChange}
             {...restProps}
           />
         </DesktopWrapper>
@@ -237,7 +241,8 @@ SingleDatePicker.propTypes = {
   // react-dates...
   id: PropTypes.string,
   date: PropTypes.shape({}),
-  onDateChange: PropTypes.func
+  onDateChange: PropTypes.func,
+  onFocusChange: PropTypes.func
 };
 
 SingleDatePicker.defaultProps = {
@@ -248,7 +253,8 @@ SingleDatePicker.defaultProps = {
   // react-dates...
   id: null,
   date: null,
-  onDateChange: null
+  onDateChange: null,
+  onFocusChange: null
 };
 
 export default SingleDatePicker;

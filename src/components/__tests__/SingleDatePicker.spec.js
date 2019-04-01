@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React from "react";
 import moment from "moment";
-import { render } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 import { triggerWindowResize, resetWindowSize } from "window-test-utils";
 import { breakpoints } from "brown-university-styles";
 import SingleDatePickerContainer from "../utils/SingleDatePickerContainer";
@@ -43,12 +43,24 @@ describe("SingleDatePicker", () => {
       ...rtlUtils
     });
 
-    expect(element.value).toBe(
-      nextDate.format(singleDatePickerTestUtils.defaultDateFormat)
-    );
+    if (nextDate) {
+      expect(element.value).toBe(
+        nextDate.format(singleDatePickerTestUtils.defaultDateFormat)
+      );
+    } else {
+      expect(element.value).toBe("");
+    }
   };
 
   describe("one month", () => {
+    describe("without initial date", () => {
+      it("sets date", async () => {
+        await setupAndValidateDateChange({
+          nextDate: oneMonthFromNow
+        });
+      });
+    });
+
     describe("with initial date", () => {
       it("updates date", async () => {
         await setupAndValidateDateChange({
@@ -56,12 +68,11 @@ describe("SingleDatePicker", () => {
           nextDate: nextWeek
         });
       });
-    });
 
-    describe("without initial date", () => {
-      it("sets date", async () => {
+      it("clears date", async () => {
         await setupAndValidateDateChange({
-          nextDate: oneMonthFromNow
+          props: { date: today },
+          nextDate: null
         });
       });
     });
@@ -79,15 +90,6 @@ describe("SingleDatePicker", () => {
   });
 
   describe("two months", () => {
-    describe("with initial date", () => {
-      it("updates date", async () => {
-        await setupAndValidateDateChange({
-          props: { numberOfMonths: 2, date: today },
-          nextDate: sixMonthsFromNow
-        });
-      });
-    });
-
     describe("without initial date", () => {
       it("sets date", async () => {
         await setupAndValidateDateChange({
@@ -95,6 +97,22 @@ describe("SingleDatePicker", () => {
             numberOfMonths: 2
           },
           nextDate: oneYearFromNow
+        });
+      });
+    });
+
+    describe("with initial date", () => {
+      it("updates date", async () => {
+        await setupAndValidateDateChange({
+          props: { numberOfMonths: 2, date: today },
+          nextDate: sixMonthsFromNow
+        });
+      });
+
+      it("clears date", async () => {
+        await setupAndValidateDateChange({
+          props: { numberOfMonths: 2, date: today },
+          nextDate: null
         });
       });
     });
@@ -126,7 +144,7 @@ describe("SingleDatePicker", () => {
       expect(getByLabelText("Date")).toHaveAttribute("type", "date");
     });
 
-    it("handles date change", async () => {
+    it("sets date", async () => {
       const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
       const nextValue = today.format("YYYY-MM-DD");
@@ -139,25 +157,49 @@ describe("SingleDatePicker", () => {
 
       expect(element.value).toBe(nextValue);
     });
-  });
-});
 
-describe("singleDatePickerTestUtils", () => {
-  describe("empty date", () => {
-    it("handles gracefully", async () => {
-      const rtlUtils = renderSingleDatepicker({ date: today });
+    it("updates date", async () => {
+      const rtlUtils = renderSingleDatepicker({
+        props: { date: today }
+      });
+      const element = rtlUtils.getByLabelText("Date");
+      const nextValue = nextWeek.format("YYYY-MM-DD");
+
+      await singleDatePickerTestUtils.makeSelection({
+        element,
+        date: nextWeek,
+        ...rtlUtils
+      });
+
+      expect(element.value).toBe(nextValue);
+    });
+
+    it("clears date", async () => {
+      const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
 
       await singleDatePickerTestUtils.makeSelection({
         element,
-        date: "",
+        date: null,
         ...rtlUtils
       });
 
       expect(element.value).toBe("");
     });
-  });
 
+    it("calls `onFocusChange` with `{ focused: false }` on blur", () => {
+      const onFocusChange = jest.fn();
+      const { getByLabelText } = renderSingleDatepicker({ onFocusChange });
+
+      fireEvent.blur(getByLabelText("Date"));
+
+      expect(onFocusChange).toHaveBeenCalledTimes(1);
+      expect(onFocusChange).toHaveBeenCalledWith({ focused: false });
+    });
+  });
+});
+
+describe("singleDatePickerTestUtils", () => {
   describe("blocked date", () => {
     beforeEach(() => {
       global.console = { warn: jest.fn() };
