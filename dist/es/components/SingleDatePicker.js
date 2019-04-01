@@ -94,7 +94,8 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
       id = _ref5.id,
       date = _ref5.date,
       onDateChange = _ref5.onDateChange,
-      restProps = _objectWithoutProperties(_ref5, ["color", "mobileBreakpoint", "numberOfMonths", "placeholder", "id", "date", "onDateChange"]);
+      onFocusChange = _ref5.onFocusChange,
+      restProps = _objectWithoutProperties(_ref5, ["color", "mobileBreakpoint", "numberOfMonths", "placeholder", "id", "date", "onDateChange", "onFocusChange"]);
 
   return React.createElement(WindowSize, {
     render: function render(_ref6) {
@@ -113,8 +114,14 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
             if (e.target.value) {
               onDateChange(moment(e.target.value, mobileDateFormat));
             } else {
+              // handle invalid date
               onDateChange(null);
             }
+          },
+          onBlur: function onBlur() {
+            return onFocusChange({
+              focused: false
+            });
           }
         });
       }
@@ -128,7 +135,8 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
         placeholder: placeholder,
         id: id,
         date: date,
-        onDateChange: onDateChange
+        onDateChange: onDateChange,
+        onFocusChange: onFocusChange
       }, restProps)));
     }
   });
@@ -142,7 +150,8 @@ SingleDatePicker.propTypes = {
   // react-dates...
   id: PropTypes.string,
   date: PropTypes.shape({}),
-  onDateChange: PropTypes.func
+  onDateChange: PropTypes.func,
+  onFocusChange: PropTypes.func
 };
 SingleDatePicker.defaultProps = {
   color: "red",
@@ -152,6 +161,7 @@ SingleDatePicker.defaultProps = {
   // react-dates...
   id: null,
   date: null,
-  onDateChange: null
+  onDateChange: null,
+  onFocusChange: null
 };
 export default SingleDatePicker;

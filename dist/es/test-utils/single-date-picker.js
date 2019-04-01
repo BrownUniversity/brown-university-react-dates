@@ -47,7 +47,7 @@ function _makeSelection() {
 
           case 5:
             /*
-              handle date selection via datepicker
+              handle desktop date selection
             */
             // input element info
             isSelection = !!inputElement.value; // calendar element info

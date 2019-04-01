@@ -1,4 +1,4 @@
-/*! brown-university-react-dates v0.1.6 */
+/*! brown-university-react-dates v0.1.7 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library"));
@@ -187,7 +187,8 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
       id = _ref5.id,
       date = _ref5.date,
       onDateChange = _ref5.onDateChange,
-      restProps = _objectWithoutProperties(_ref5, ["color", "mobileBreakpoint", "numberOfMonths", "placeholder", "id", "date", "onDateChange"]);
+      onFocusChange = _ref5.onFocusChange,
+      restProps = _objectWithoutProperties(_ref5, ["color", "mobileBreakpoint", "numberOfMonths", "placeholder", "id", "date", "onDateChange", "onFocusChange"]);
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_fns__WEBPACK_IMPORTED_MODULE_5__["WindowSize"], {
     render: function render(_ref6) {
@@ -206,8 +207,14 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
             if (e.target.value) {
               onDateChange(moment__WEBPACK_IMPORTED_MODULE_3___default()(e.target.value, mobileDateFormat));
             } else {
+              // handle invalid date
               onDateChange(null);
             }
+          },
+          onBlur: function onBlur() {
+            return onFocusChange({
+              focused: false
+            });
           }
         });
       }
@@ -221,7 +228,8 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
         placeholder: placeholder,
         id: id,
         date: date,
-        onDateChange: onDateChange
+        onDateChange: onDateChange,
+        onFocusChange: onFocusChange
       }, restProps)));
     }
   });
@@ -235,7 +243,8 @@ SingleDatePicker.propTypes =  true ? {
   // react-dates...
   id: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
   date: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.shape({}),
-  onDateChange: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func
+  onDateChange: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
+  onFocusChange: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func
 } : undefined;
 SingleDatePicker.defaultProps = {
   color: "red",
@@ -245,7 +254,8 @@ SingleDatePicker.defaultProps = {
   // react-dates...
   id: null,
   date: null,
-  onDateChange: null
+  onDateChange: null,
+  onFocusChange: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (SingleDatePicker);
 
@@ -1212,7 +1222,7 @@ function _makeSelection() {
 
           case 5:
             /*
-              handle date selection via datepicker
+              handle desktop date selection
             */
             // input element info
             isSelection = !!inputElement.value; // calendar element info
