@@ -10,26 +10,30 @@ const SingleDatePickerContainer = ({
   id = "single-date-picker",
   date: initialDate = null,
   focused: initialFocused = false,
+  onDateChange = () => undefined,
+  onFocusChange = () => undefined,
   children,
   ...restProps
 }) => {
   const [date, setDate] = useState(initialDate);
   const [focused, setFocused] = useState(initialFocused);
 
-  const onDateChange = nextDate => {
+  const handleDateChange = nextDate => {
     setDate(nextDate);
+    onDateChange(nextDate);
   };
 
-  const onFocusChange = ({ focused: nextFocused }) => {
+  const handleFocusChange = ({ focused: nextFocused }) => {
     setFocused(nextFocused);
+    onFocusChange({ focused: nextFocused });
   };
 
   return React.cloneElement(children, {
     id,
     date,
-    onDateChange,
+    onDateChange: handleDateChange,
     focused,
-    onFocusChange,
+    onFocusChange: handleFocusChange,
     ...restProps
   });
 };

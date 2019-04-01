@@ -23,7 +23,7 @@ async function makeSelection({
   }
 
   /*
-    handle date selection via mobile fallback
+    handle mobile date selection
   */
   if (inputElement.type === "date") {
     return fireEvent.change(inputElement, {
@@ -32,7 +32,7 @@ async function makeSelection({
   }
 
   /*
-    handle date selection via datepicker
+    handle desktop date selection
   */
   // input element info
   const isSelection = !!inputElement.value;
