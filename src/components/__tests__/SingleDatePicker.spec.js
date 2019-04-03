@@ -35,17 +35,14 @@ const renderSingleDatepicker = props => {
 };
 
 describe("SingleDatePicker", () => {
-  const setupAndValidateDateChange = async ({
-    props = {},
-    nextDateMomentObj
-  }) => {
+  const setupAndValidateDateChange = ({ props = {}, nextDateMomentObj }) => {
     const rtlUtils = renderSingleDatepicker(props);
     const element = rtlUtils.getByLabelText("Date");
     const date = nextDateMomentObj
       ? nextDateMomentObj.format(singleDatePickerTestUtils.defaultDateFormat)
       : null;
 
-    await singleDatePickerTestUtils.makeSelection({
+    singleDatePickerTestUtils.makeSelection({
       element,
       date,
       ...rtlUtils
@@ -60,23 +57,23 @@ describe("SingleDatePicker", () => {
 
   describe("one month", () => {
     describe("without initial date", () => {
-      it("sets date", async () => {
-        await setupAndValidateDateChange({
+      it("sets date", () => {
+        setupAndValidateDateChange({
           nextDateMomentObj: oneMonthFromNow
         });
       });
     });
 
     describe("with initial date", () => {
-      it("updates date", async () => {
-        await setupAndValidateDateChange({
+      it("updates date", () => {
+        setupAndValidateDateChange({
           props: { date: today },
           nextDateMomentObj: nextWeek
         });
       });
 
-      it("clears date", async () => {
-        await setupAndValidateDateChange({
+      it("clears date", () => {
+        setupAndValidateDateChange({
           props: { date: today },
           nextDateMomentObj: null
         });
@@ -84,8 +81,8 @@ describe("SingleDatePicker", () => {
     });
 
     describe("allowing all days", () => {
-      it("sets past date", async () => {
-        await setupAndValidateDateChange({
+      it("sets past date", () => {
+        setupAndValidateDateChange({
           props: {
             isOutsideRange: () => false
           },
@@ -97,8 +94,8 @@ describe("SingleDatePicker", () => {
 
   describe("two months", () => {
     describe("without initial date", () => {
-      it("sets date", async () => {
-        await setupAndValidateDateChange({
+      it("sets date", () => {
+        setupAndValidateDateChange({
           props: {
             numberOfMonths: 2
           },
@@ -108,15 +105,15 @@ describe("SingleDatePicker", () => {
     });
 
     describe("with initial date", () => {
-      it("updates date", async () => {
-        await setupAndValidateDateChange({
+      it("updates date", () => {
+        setupAndValidateDateChange({
           props: { numberOfMonths: 2, date: today },
           nextDateMomentObj: sixMonthsFromNow
         });
       });
 
-      it("clears date", async () => {
-        await setupAndValidateDateChange({
+      it("clears date", () => {
+        setupAndValidateDateChange({
           props: { numberOfMonths: 2, date: today },
           nextDateMomentObj: null
         });
@@ -124,8 +121,8 @@ describe("SingleDatePicker", () => {
     });
 
     describe("allowing all days", () => {
-      it("sets past date", async () => {
-        await setupAndValidateDateChange({
+      it("sets past date", () => {
+        setupAndValidateDateChange({
           props: {
             numberOfMonths: 2,
             isOutsideRange: () => false
@@ -150,11 +147,11 @@ describe("SingleDatePicker", () => {
       expect(getByLabelText("Date")).toHaveAttribute("type", "date");
     });
 
-    it("sets date", async () => {
+    it("sets date", () => {
       const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
 
-      await singleDatePickerTestUtils.makeSelection({
+      singleDatePickerTestUtils.makeSelection({
         element,
         date: today.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils
@@ -163,13 +160,13 @@ describe("SingleDatePicker", () => {
       expect(element.value).toBe(today.format(isoDateFormat));
     });
 
-    it("updates date", async () => {
+    it("updates date", () => {
       const rtlUtils = renderSingleDatepicker({
         props: { date: today }
       });
       const element = rtlUtils.getByLabelText("Date");
 
-      await singleDatePickerTestUtils.makeSelection({
+      singleDatePickerTestUtils.makeSelection({
         element,
         date: nextWeek.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils
@@ -178,11 +175,11 @@ describe("SingleDatePicker", () => {
       expect(element.value).toBe(nextWeek.format(isoDateFormat));
     });
 
-    it("clears date", async () => {
+    it("clears date", () => {
       const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
 
-      await singleDatePickerTestUtils.makeSelection({
+      singleDatePickerTestUtils.makeSelection({
         element,
         date: null,
         ...rtlUtils
@@ -213,11 +210,11 @@ describe("singleDatePickerTestUtils", () => {
       jest.clearAllMocks();
     });
 
-    it("handles gracefully with warning", async () => {
+    it("handles gracefully with warning", () => {
       const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
 
-      await singleDatePickerTestUtils.makeSelection({
+      singleDatePickerTestUtils.makeSelection({
         element,
         date: yesterday.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils
@@ -233,11 +230,11 @@ describe("singleDatePickerTestUtils", () => {
       /* eslint-enable no-console */
     });
 
-    it("handles gracefully without warning", async () => {
+    it("handles gracefully without warning", () => {
       const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
 
-      await singleDatePickerTestUtils.makeSelection({
+      singleDatePickerTestUtils.makeSelection({
         element,
         date: yesterday.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils,
