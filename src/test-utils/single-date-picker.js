@@ -4,7 +4,7 @@ import { fireEvent } from "react-testing-library";
 const defaultDateFormat = "MM/DD/YYYY";
 export const isoDateFormat = "YYYY-MM-DD";
 
-async function makeSelection({
+function makeSelection({
   element: inputElement,
   date: nextSelectionDate,
   format: nextSelectionFormat = defaultDateFormat,
