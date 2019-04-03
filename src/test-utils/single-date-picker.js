@@ -2,6 +2,7 @@ import moment from "moment";
 import { fireEvent } from "react-testing-library";
 
 const defaultDateFormat = "MM/DD/YYYY";
+export const isoDateFormat = "YYYY-MM-DD";
 
 async function makeSelection({
   element: inputElement,
@@ -27,7 +28,11 @@ async function makeSelection({
   */
   if (inputElement.type === "date") {
     return fireEvent.change(inputElement, {
-      target: { value: nextSelectionDate.format("YYYY-MM-DD") }
+      target: {
+        value: moment(nextSelectionDate, nextSelectionFormat).format(
+          isoDateFormat
+        )
+      }
     });
   }
 

@@ -6,7 +6,9 @@ import { triggerWindowResize, resetWindowSize } from "window-test-utils";
 import { breakpoints } from "brown-university-styles";
 import SingleDatePickerContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
-import singleDatePickerTestUtils from "../../test-utils/single-date-picker";
+import singleDatePickerTestUtils, {
+  isoDateFormat
+} from "../../test-utils/single-date-picker";
 
 // `react-dates` renders a month to either side of the currently visible month(s)
 const oneYearAgo = moment().subtract(1, "year");
@@ -33,20 +35,24 @@ const renderSingleDatepicker = props => {
 };
 
 describe("SingleDatePicker", () => {
-  const setupAndValidateDateChange = async ({ props = {}, nextDate }) => {
+  const setupAndValidateDateChange = async ({
+    props = {},
+    nextDateMomentObj
+  }) => {
     const rtlUtils = renderSingleDatepicker(props);
     const element = rtlUtils.getByLabelText("Date");
+    const date = nextDateMomentObj
+      ? nextDateMomentObj.format(singleDatePickerTestUtils.defaultDateFormat)
+      : null;
 
     await singleDatePickerTestUtils.makeSelection({
       element,
-      date: nextDate,
+      date,
       ...rtlUtils
     });
 
-    if (nextDate) {
-      expect(element.value).toBe(
-        nextDate.format(singleDatePickerTestUtils.defaultDateFormat)
-      );
+    if (date) {
+      expect(element.value).toBe(date);
     } else {
       expect(element.value).toBe("");
     }
@@ -56,7 +62,7 @@ describe("SingleDatePicker", () => {
     describe("without initial date", () => {
       it("sets date", async () => {
         await setupAndValidateDateChange({
-          nextDate: oneMonthFromNow
+          nextDateMomentObj: oneMonthFromNow
         });
       });
     });
@@ -65,14 +71,14 @@ describe("SingleDatePicker", () => {
       it("updates date", async () => {
         await setupAndValidateDateChange({
           props: { date: today },
-          nextDate: nextWeek
+          nextDateMomentObj: nextWeek
         });
       });
 
       it("clears date", async () => {
         await setupAndValidateDateChange({
           props: { date: today },
-          nextDate: null
+          nextDateMomentObj: null
         });
       });
     });
@@ -83,7 +89,7 @@ describe("SingleDatePicker", () => {
           props: {
             isOutsideRange: () => false
           },
-          nextDate: sixMonthsAgo
+          nextDateMomentObj: sixMonthsAgo
         });
       });
     });
@@ -96,7 +102,7 @@ describe("SingleDatePicker", () => {
           props: {
             numberOfMonths: 2
           },
-          nextDate: oneYearFromNow
+          nextDateMomentObj: oneYearFromNow
         });
       });
     });
@@ -105,14 +111,14 @@ describe("SingleDatePicker", () => {
       it("updates date", async () => {
         await setupAndValidateDateChange({
           props: { numberOfMonths: 2, date: today },
-          nextDate: sixMonthsFromNow
+          nextDateMomentObj: sixMonthsFromNow
         });
       });
 
       it("clears date", async () => {
         await setupAndValidateDateChange({
           props: { numberOfMonths: 2, date: today },
-          nextDate: null
+          nextDateMomentObj: null
         });
       });
     });
@@ -124,7 +130,7 @@ describe("SingleDatePicker", () => {
             numberOfMonths: 2,
             isOutsideRange: () => false
           },
-          nextDate: oneYearAgo
+          nextDateMomentObj: oneYearAgo
         });
       });
     });
@@ -147,15 +153,14 @@ describe("SingleDatePicker", () => {
     it("sets date", async () => {
       const rtlUtils = renderSingleDatepicker();
       const element = rtlUtils.getByLabelText("Date");
-      const nextValue = today.format("YYYY-MM-DD");
 
       await singleDatePickerTestUtils.makeSelection({
         element,
-        date: today,
+        date: today.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils
       });
 
-      expect(element.value).toBe(nextValue);
+      expect(element.value).toBe(today.format(isoDateFormat));
     });
 
     it("updates date", async () => {
@@ -163,15 +168,14 @@ describe("SingleDatePicker", () => {
         props: { date: today }
       });
       const element = rtlUtils.getByLabelText("Date");
-      const nextValue = nextWeek.format("YYYY-MM-DD");
 
       await singleDatePickerTestUtils.makeSelection({
         element,
-        date: nextWeek,
+        date: nextWeek.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils
       });
 
-      expect(element.value).toBe(nextValue);
+      expect(element.value).toBe(nextWeek.format(isoDateFormat));
     });
 
     it("clears date", async () => {
@@ -215,7 +219,7 @@ describe("singleDatePickerTestUtils", () => {
 
       await singleDatePickerTestUtils.makeSelection({
         element,
-        date: yesterday,
+        date: yesterday.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils
       });
 
@@ -235,7 +239,7 @@ describe("singleDatePickerTestUtils", () => {
 
       await singleDatePickerTestUtils.makeSelection({
         element,
-        date: yesterday,
+        date: yesterday.format(singleDatePickerTestUtils.defaultDateFormat),
         ...rtlUtils,
         warnings: false
       });
