@@ -1,4 +1,4 @@
-/*! brown-university-react-dates v0.1.7 */
+/*! brown-university-react-dates v0.1.8 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library"));
@@ -1169,6 +1169,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isoDateFormat", function() { return isoDateFormat; });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
@@ -1180,6 +1181,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var defaultDateFormat = "MM/DD/YYYY";
+var isoDateFormat = "YYYY-MM-DD";
 
 function makeSelection(_x) {
   return _makeSelection.apply(this, arguments);
@@ -1216,7 +1218,7 @@ function _makeSelection() {
 
             return _context.abrupt("return", react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
               target: {
-                value: nextSelectionDate.format("YYYY-MM-DD")
+                value: moment__WEBPACK_IMPORTED_MODULE_0___default()(nextSelectionDate, nextSelectionFormat).format(isoDateFormat)
               }
             }));
 

@@ -5,6 +5,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 import moment from "moment";
 import { fireEvent } from "react-testing-library";
 var defaultDateFormat = "MM/DD/YYYY";
+export var isoDateFormat = "YYYY-MM-DD";
 
 function makeSelection(_x) {
   return _makeSelection.apply(this, arguments);
@@ -41,7 +42,7 @@ function _makeSelection() {
 
             return _context.abrupt("return", fireEvent.change(inputElement, {
               target: {
-                value: nextSelectionDate.format("YYYY-MM-DD")
+                value: moment(nextSelectionDate, nextSelectionFormat).format(isoDateFormat)
               }
             }));
 
