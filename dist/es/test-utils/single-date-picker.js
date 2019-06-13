@@ -1,5 +1,5 @@
 import moment from "moment";
-import { fireEvent } from "react-testing-library";
+import { fireEvent } from "@testing-library/react";
 var defaultDateFormat = "MM/DD/YYYY";
 export var isoDateFormat = "YYYY-MM-DD";
 

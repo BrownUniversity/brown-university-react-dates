@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React from "react";
 import moment from "moment";
-import { render, fireEvent } from "react-testing-library";
+import { render, fireEvent } from "@testing-library/react";
 import { triggerWindowResize, resetWindowSize } from "window-test-utils";
 import { breakpoints } from "brown-university-styles";
 import SingleDatePickerContainer from "../utils/SingleDatePickerContainer";

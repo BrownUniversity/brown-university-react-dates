@@ -1,5 +1,5 @@
 import moment from "moment";
-import { fireEvent } from "react-testing-library";
+import { fireEvent } from "@testing-library/react";
 
 const defaultDateFormat = "MM/DD/YYYY";
 export const isoDateFormat = "YYYY-MM-DD";
@@ -9,7 +9,7 @@ function makeSelection({
   date: nextSelectionDate,
   format: nextSelectionFormat = defaultDateFormat,
   warnings = true,
-  // react-testing-library...
+  // @testing-library/react...
   getByText,
   getByLabelText,
   queryByLabelText
