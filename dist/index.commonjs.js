@@ -1,11 +1,11 @@
-/*! brown-university-react-dates v0.1.9 */
+/*! brown-university-react-dates v1.0.0 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library"));
+		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("@testing-library/react"));
 	else if(typeof define === 'function' && define.amd)
-		define(["prop-types", "react", "styled-components", "moment", "react-dates", "brown-university-styles", "react-testing-library"], factory);
+		define(["prop-types", "react", "styled-components", "moment", "react-dates", "brown-university-styles", "@testing-library/react"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("react-testing-library")) : factory(root["prop-types"], root["react"], root["styled-components"], root["moment"], root["react-dates"], root["brown-university-styles"], root["react-testing-library"]);
+		var a = typeof exports === 'object' ? factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("brown-university-styles"), require("@testing-library/react")) : factory(root["prop-types"], root["react"], root["styled-components"], root["moment"], root["react-dates"], root["brown-university-styles"], root["@testing-library/react"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__15__, __WEBPACK_EXTERNAL_MODULE__19__) {
@@ -1111,27 +1111,27 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__15__;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
-/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
-  let {
-    styles = {}
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["styles"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "svg",
-    _extends({ focusable: "false", width: "11", height: "17", viewBox: "0 0 11 17" }, props),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      "g",
-      { stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd" },
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M84 252.898l2.08 2.08 8.741-8.74L86.584 238l-2.08 2.08 6.157 6.158-6.661 6.66z", transform: "matrix(-1 0 0 1 94.821 -238)", id: "chevron-left", fill: "#98A4AE" })
-    )
-  );
-});
+/* harmony default export */ __webpack_exports__["default"] = (({
+  styles = {},
+  ...props
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  focusable: "false",
+  width: "11",
+  height: "17"
+}, props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+  stroke: "none",
+  strokeWidth: "1",
+  fill: "none",
+  fillRule: "evenodd"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  d: "M84 252.898l2.08 2.08 8.741-8.74L86.584 238l-2.08 2.08 6.157 6.158-6.661 6.66z",
+  transform: "matrix(-1 0 0 1 94.821 -238)",
+  id: "chevron-left",
+  fill: "#98A4AE"
+}))));
 
 /***/ }),
 /* 17 */
@@ -1141,27 +1141,27 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
-/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
-  let {
-    styles = {}
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["styles"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "svg",
-    _extends({ focusable: "false", width: "11", height: "17", viewBox: "0 0 11 17" }, props),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      "g",
-      { stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd" },
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M571 253.898l2.08 2.08 8.741-8.74-8.237-8.238-2.08 2.08 6.157 6.158-6.661 6.66z", transform: "translate(-571 -239)", id: "chevron-right", fill: "#98A4AE" })
-    )
-  );
-});
+/* harmony default export */ __webpack_exports__["default"] = (({
+  styles = {},
+  ...props
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+  focusable: "false",
+  width: "11",
+  height: "17"
+}, props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+  stroke: "none",
+  strokeWidth: "1",
+  fill: "none",
+  fillRule: "evenodd"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+  d: "M571 253.898l2.08 2.08 8.741-8.74-8.237-8.238-2.08 2.08 6.157 6.158-6.661 6.66z",
+  transform: "translate(-571 -239)",
+  id: "chevron-right",
+  fill: "#98A4AE"
+}))));
 
 /***/ }),
 /* 18 */
@@ -1172,8 +1172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isoDateFormat", function() { return isoDateFormat; });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
-/* harmony import */ var react_testing_library__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_testing_library__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
+/* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_testing_library_react__WEBPACK_IMPORTED_MODULE_1__);
 
 
 var defaultDateFormat = "MM/DD/YYYY";
@@ -1194,7 +1194,7 @@ function makeSelection(_ref) {
     handle empty date selection
   */
   if (!nextSelectionDate) {
-    return react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
+    return _testing_library_react__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
       target: {
         value: ""
       }
@@ -1206,7 +1206,7 @@ function makeSelection(_ref) {
 
 
   if (inputElement.type === "date") {
-    return react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
+    return _testing_library_react__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].change(inputElement, {
       target: {
         value: moment__WEBPACK_IMPORTED_MODULE_0___default()(nextSelectionDate, nextSelectionFormat).format(isoDateFormat)
       }
@@ -1240,9 +1240,9 @@ function makeSelection(_ref) {
 
   var handleMonthNavigation = function handleMonthNavigation() {
     if (nextSelectionMoment.isBefore(currentSelectionMoment, "month")) {
-      react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navPrevAriaLabelText));
+      _testing_library_react__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navPrevAriaLabelText));
     } else {
-      react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navNextAriaLabelText));
+      _testing_library_react__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(navNextAriaLabelText));
     }
   }; // focus input (opens calendar)
 
@@ -1260,7 +1260,7 @@ function makeSelection(_ref) {
 
   try {
     // make next selection
-    react_testing_library__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(nextSelectionLabelText)); // validate calendar is closed
+    _testing_library_react__WEBPACK_IMPORTED_MODULE_1__["fireEvent"].click(getByLabelText(nextSelectionLabelText)); // validate calendar is closed
 
     expect(queryByLabelText(calendarAriaLabelText)).not.toBeInTheDocument();
   } catch (e) {
