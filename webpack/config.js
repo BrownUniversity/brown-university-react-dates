@@ -23,7 +23,8 @@ module.exports = {
     "@testing-library/react": "@testing-library/react",
     "styled-components": "styled-components",
     "prop-types": "prop-types",
-    "react-fns": "react-fns"
+    "react-fns": "react-fns",
+    "@testing-library/jest-dom": "@testing-library/jest-dom"
   },
   module: {
     rules: [
