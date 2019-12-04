@@ -22,7 +22,8 @@ module.exports = {
     "react-dates": "react-dates",
     "@testing-library/react": "@testing-library/react",
     "styled-components": "styled-components",
-    "prop-types": "prop-types"
+    "prop-types": "prop-types",
+    "react-fns": "react-fns"
   },
   module: {
     rules: [
