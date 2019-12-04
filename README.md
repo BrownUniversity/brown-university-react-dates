@@ -34,7 +34,7 @@ These libraries are not bundled with Brown University React Dates and are requir
 
 These libraries are not bundled with Brown University React Dates, but are required to use the test utils:
 
-- [**jest-dom**](https://www.npmjs.com/package/jest-dom)
+- [**@testing-library/jest-dom**](https://www.npmjs.com/package/@testing-library/jest-dom)
 - [**@testing-library/react**](https://www.npmjs.com/package/@testing-library/react)
 
 ### 2. Import styles from Brown University Styles
