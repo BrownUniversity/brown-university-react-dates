@@ -16,6 +16,7 @@ module.exports = {
     libraryTarget: "umd"
   },
   externals: {
+    "brown-university-components": "brown-university-styles",
     "brown-university-styles": "brown-university-styles",
     moment: "moment",
     react: "react",
