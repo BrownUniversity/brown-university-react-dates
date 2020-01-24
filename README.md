@@ -12,10 +12,10 @@ A wrapped implementation of Airbnb's [`react-dates`](https://github.com/airbnb/r
 
 ```sh
 // npm
-npm i git+https://bitbucket.brown.edu/scm/react/brown-university-react-dates.git#semver:^1.0
+npm i git+https://bitbucket.brown.edu/scm/react/brown-university-react-dates.git#semver:^1.1
 
 // yarn
-yarn add git+https://bitbucket.brown.edu/scm/react/brown-university-react-dates.git#^1.0
+yarn add git+https://bitbucket.brown.edu/scm/react/brown-university-react-dates.git#^1.1
 ```
 
 _Ensure you're on the network and that your SSH key has been added to the ssh-agent (`ssh-add ~/.ssh/id_rsa`) and uploaded to [bitbucket.brown.edu](https://bitbucket.brown.edu/plugins/servlet/ssh/account/keys)._
