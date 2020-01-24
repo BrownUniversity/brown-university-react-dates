@@ -143,7 +143,7 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
 };
 
 SingleDatePicker.propTypes = {
-  color: PropTypes.oneOf(["red", "brown", "emerald", "skyBlue", "navy", "idRed"]),
+  color: PropTypes.oneOf(["red", "brown", "emerald", "darkEmerald", "skyBlue", "navy", "idRed"]),
   mobileBreakpoint: PropTypes.number,
   numberOfMonths: PropTypes.number,
   placeholder: PropTypes.string,
