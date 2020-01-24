@@ -237,7 +237,7 @@ var SingleDatePicker = function SingleDatePicker(_ref5) {
 };
 
 SingleDatePicker.propTypes =  true ? {
-  color: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOf(["red", "brown", "emerald", "skyBlue", "navy", "idRed"]),
+  color: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOf(["red", "brown", "emerald", "darkEmerald", "skyBlue", "navy", "idRed"]),
   mobileBreakpoint: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.number,
   numberOfMonths: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.number,
   placeholder: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
