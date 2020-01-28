@@ -2,7 +2,7 @@
   "name": "brown-university-react-dates",
   "description": "A wrapped implementation of Airbnb's react-dates for use in React-based applications at Brown University.",
   "author": "Colin Cummings <colin_cummings@brown.edu>",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "homepage": "https://bitbucket.brown.edu/projects/react/repos/brown-university-react-dates",
   "main": "dist/index.commonjs.js",

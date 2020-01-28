@@ -53,6 +53,7 @@ ChevronRightSVG.defaultProps = {
   height: "17",
   viewBox: "0 0 11 17"
 };
+import { WeekHeaderCSS, CalendarDayCSS } from "./utils/shared_styles";
 /*
   css mixins
 */
@@ -69,37 +70,31 @@ var MobileInput = styled.input.withConfig({
 var DesktopWrapper = styled.div.withConfig({
   displayName: "SingleDatePicker__DesktopWrapper",
   componentId: "sc-7ojo1s-1"
-})([".SingleDatePicker,.SingleDatePickerInput,.DateInput{width:100%;}.DateInput_input{", " &::before,&::after{display:none;}}.DateInput_input__focused{border-bottom:2px solid transparent;}.DayPickerNavigation_button{border:1px solid ", ";border-radius:3px;line-height:0.78;padding:6px 9px;position:absolute;top:18px;#chevron-left,#chevron-right{fill:", ";}&:first-of-type{left:22px;}&:last-of-type{right:22px;}}.CalendarMonth_caption{color:", ";font-family:", ";font-size:", ";}.DayPicker_weekHeader{& small{color:", ";font-family:", ";font-size:", ";}}.CalendarDay,.CalendarDay:hover{border:none;}.CalendarDay__default{color:", ";font-family:", ";font-weight:bold;}.CalendarDay__blocked_out_of_range,.CalendarDay__blocked_out_of_range:hover{color:", ";}.CalendarDay__selected,.CalendarDay__selected:hover{background-color:", ";border-radius:20px;color:", ";}.CalendarDay__highlighted_calendar{&:not(.CalendarDay__blocked_out_of_range,.CalendarDay__selected){background-color:rgba(255,199,44,0.65);&:hover{background-color:", ";}}}.CalendarDay__blocked_calendar,.CalendarDay__blocked_calendar:hover{&:not(.CalendarDay__blocked_out_of_range){color:", ";background-color:", ";}}.DayPickerKeyboardShortcuts_show::before,.DayPickerKeyboardShortcuts_show:hover::before{border-right:33px solid ", ";}.DayPickerKeyboardShortcuts_title{font-family:", ";}.KeyboardShortcutRow{margin-bottom:12px;}.KeyboardShortcutRow_keyContainer{display:inline;margin-right:6px;}.KeyboardShortcutRow_key{background:", ";padding:2px 6px;}.KeyboardShortcutRow_action{display:inline;font-family:", ";}"], inputCSS, colors.lightGray, function (_ref) {
+})([".SingleDatePicker,.SingleDatePickerInput,.DateInput{width:100%;}.DateInput_input{", " &::before,&::after{display:none;}}.DateInput_input__focused{border-bottom:2px solid transparent;}.DayPickerNavigation_button{border:1px solid ", ";border-radius:3px;line-height:0.78;padding:6px 9px;position:absolute;top:18px;#chevron-left,#chevron-right{fill:", ";}&:first-of-type{left:22px;}&:last-of-type{right:22px;}}.CalendarMonth_caption{color:", ";font-family:", ";font-size:", ";}.DayPicker_weekHeader{", "}", " .CalendarDay__selected,.CalendarDay__selected:hover{border-radius:20px;}"], inputCSS, colors.lightGray, function (_ref) {
   var color = _ref.color;
   return colors[color];
 }, function (_ref2) {
   var color = _ref2.color;
   return colors[color];
-}, typography.sansBold, getRems(18), colors.black, typography.sansBold, getRems(12), colors.black, typography.sans, colors.mediumGray, function (_ref3) {
-  var color = _ref3.color;
-  return colors[color];
-}, colors.white, colors.gold, colors.mediumGray, colors.transparentBlack, function (_ref4) {
-  var color = _ref4.color;
-  return colors[color];
-}, typography.sansBold, colors.lightGray, typography.sans);
+}, typography.sansBold, getRems(18), WeekHeaderCSS, CalendarDayCSS);
 /*
   outer SingleDatePicker component
 */
 
-var SingleDatePicker = function SingleDatePicker(_ref5) {
-  var color = _ref5.color,
-      mobileBreakpoint = _ref5.mobileBreakpoint,
-      numberOfMonths = _ref5.numberOfMonths,
-      placeholder = _ref5.placeholder,
-      id = _ref5.id,
-      date = _ref5.date,
-      onDateChange = _ref5.onDateChange,
-      onFocusChange = _ref5.onFocusChange,
-      restProps = _objectWithoutProperties(_ref5, ["color", "mobileBreakpoint", "numberOfMonths", "placeholder", "id", "date", "onDateChange", "onFocusChange"]);
+var SingleDatePicker = function SingleDatePicker(_ref3) {
+  var color = _ref3.color,
+      mobileBreakpoint = _ref3.mobileBreakpoint,
+      numberOfMonths = _ref3.numberOfMonths,
+      placeholder = _ref3.placeholder,
+      id = _ref3.id,
+      date = _ref3.date,
+      onDateChange = _ref3.onDateChange,
+      onFocusChange = _ref3.onFocusChange,
+      restProps = _objectWithoutProperties(_ref3, ["color", "mobileBreakpoint", "numberOfMonths", "placeholder", "id", "date", "onDateChange", "onFocusChange"]);
 
   return React.createElement(WindowSize, {
-    render: function render(_ref6) {
-      var width = _ref6.width;
+    render: function render(_ref4) {
+      var width = _ref4.width;
       // `width` returns 0 on initial render (see `react-fns` issue 84)
       var currentWidth = width === 0 ? window.innerWidth : width;
       var renderMobile = currentWidth < mobileBreakpoint;
