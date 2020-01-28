@@ -107,17 +107,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DayPickerSingleDateController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DayPickerSingleDateController", function() { return _components_DayPickerSingleDateController__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _components_utils_shared_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WeekHeaderCSS", function() { return _components_utils_shared_styles__WEBPACK_IMPORTED_MODULE_2__["WeekHeaderCSS"]; });
+/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CalendarDayCSS", function() { return _components_utils_shared_styles__WEBPACK_IMPORTED_MODULE_2__["CalendarDayCSS"]; });
-
-/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony import */ var _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(16);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "dayPickerSingleDateControllerTestUtils", function() { return _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
+/* harmony import */ var _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "dayPickerSingleDateControllerTestUtils", function() { return _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
 
 
