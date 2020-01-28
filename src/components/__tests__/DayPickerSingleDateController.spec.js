@@ -16,11 +16,9 @@ import dayPickerSingleDateControllerTestUtils from "../../test-utils/day-picker-
 
 const renderDayPickerSingleDateController = props => {
   const rtlUtils = render(
-    <>
-      <DayPickerSingleDateControllerContainer {...props}>
-        <DayPickerSingleDateController />
-      </DayPickerSingleDateControllerContainer>
-    </>
+    <DayPickerSingleDateControllerContainer {...props}>
+      <DayPickerSingleDateController />
+    </DayPickerSingleDateControllerContainer>
   );
 
   return rtlUtils;
@@ -112,7 +110,7 @@ describe("DayPickerSingleDateController", () => {
   });
 });
 
-describe("singleDatePickerTestUtils", () => {
+describe("dayPickerSingleDateControllerTestUtils", () => {
   describe("blocked date", () => {
     beforeEach(() => {
       global.console = { warn: jest.fn() };

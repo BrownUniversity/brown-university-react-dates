@@ -7,12 +7,7 @@ import {
   isInclusivelyAfterDay
 } from "react-dates";
 import { CaretDownSVG } from "brown-university-components";
-import {
-  breakpoints,
-  colors,
-  typography,
-  getRems
-} from "brown-university-styles";
+import { colors, typography, getRems } from "brown-university-styles";
 import { WeekHeaderCSS, CalendarDayCSS } from "./utils/shared_styles";
 
 /*
@@ -91,7 +86,6 @@ const Wrapper = styled.div`
 */
 const DayPickerSingleDateController = ({
   color,
-  mobileBreakpoint,
   numberOfMonths,
   // react-dates...
   date,
@@ -122,7 +116,6 @@ DayPickerSingleDateController.propTypes = {
     "navy",
     "idRed"
   ]),
-  mobileBreakpoint: PropTypes.number,
   numberOfMonths: PropTypes.number,
   // react-dates...
   date: PropTypes.shape({}),
@@ -133,7 +126,6 @@ DayPickerSingleDateController.propTypes = {
 
 DayPickerSingleDateController.defaultProps = {
   color: "darkEmerald",
-  mobileBreakpoint: breakpoints.md,
   numberOfMonths: 1,
   // react-dates...
   date: null,
