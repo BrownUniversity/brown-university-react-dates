@@ -8,7 +8,7 @@ import {
 } from "react-dates";
 import { CaretDownSVG } from "brown-university-components";
 import { colors, typography, getRems } from "brown-university-styles";
-import { WeekHeaderCSS, CalendarDayCSS } from "./utils/shared_styles";
+import { WeekHeaderCSS, CalendarDayCSS } from "./styled/shared_styles";
 
 /*
   inner components
