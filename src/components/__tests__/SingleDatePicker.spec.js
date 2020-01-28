@@ -1,24 +1,23 @@
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 import React from "react";
-import moment from "moment";
 import { render, fireEvent } from "@testing-library/react";
 import { triggerWindowResize, resetWindowSize } from "window-test-utils";
 import { breakpoints } from "brown-university-styles";
 import SingleDatePickerContainer from "../utils/SingleDatePickerContainer";
 import SingleDatePicker from "../SingleDatePicker";
+import {
+  oneYearAgo,
+  sixMonthsAgo,
+  yesterday,
+  today,
+  nextWeek,
+  oneMonthFromNow,
+  sixMonthsFromNow,
+  oneYearFromNow
+} from "../../test-utils/shared";
 import singleDatePickerTestUtils, {
   isoDateFormat
 } from "../../test-utils/single-date-picker";
-
-// `react-dates` renders a month to either side of the currently visible month(s)
-const oneYearAgo = moment().subtract(1, "year");
-const sixMonthsAgo = moment().subtract(6, "months");
-const yesterday = moment().subtract(1, "day");
-const today = moment();
-const nextWeek = moment().add(1, "week");
-const oneMonthFromNow = moment().add(1, "month");
-const sixMonthsFromNow = moment().add(6, "months");
-const oneYearFromNow = moment().add(1, "year");
 
 const renderSingleDatepicker = props => {
   const id = "single-date-picker-test";
