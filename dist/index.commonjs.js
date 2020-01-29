@@ -107,17 +107,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DayPickerSingleDateController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DayPickerSingleDateController", function() { return _components_DayPickerSingleDateController__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _components_utils_shared_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WeekHeaderCSS", function() { return _components_utils_shared_styles__WEBPACK_IMPORTED_MODULE_2__["WeekHeaderCSS"]; });
+/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CalendarDayCSS", function() { return _components_utils_shared_styles__WEBPACK_IMPORTED_MODULE_2__["CalendarDayCSS"]; });
-
-/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_3__["default"]; });
-
-/* harmony import */ var _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(16);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "dayPickerSingleDateControllerTestUtils", function() { return _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_4__["default"]; });
-
+/* harmony import */ var _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "dayPickerSingleDateControllerTestUtils", function() { return _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
 
 
@@ -146,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var brown_university_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _svg_chevron_left_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9);
 /* harmony import */ var _svg_chevron_right_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(10);
-/* harmony import */ var _utils_shared_styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(11);
+/* harmony import */ var _styled_shared_styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(11);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -185,7 +179,7 @@ var DesktopWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.di
 }, function (_ref2) {
   var color = _ref2.color;
   return brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"][color];
-}, brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["typography"].sansBold, Object(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["getRems"])(18), _utils_shared_styles__WEBPACK_IMPORTED_MODULE_9__["WeekHeaderCSS"], _utils_shared_styles__WEBPACK_IMPORTED_MODULE_9__["CalendarDayCSS"]);
+}, brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["typography"].sansBold, Object(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["getRems"])(18), _styled_shared_styles__WEBPACK_IMPORTED_MODULE_9__["WeekHeaderCSS"], _styled_shared_styles__WEBPACK_IMPORTED_MODULE_9__["CalendarDayCSS"]);
 /*
   outer SingleDatePicker component
 */
@@ -413,7 +407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var brown_university_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
 /* harmony import */ var brown_university_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(brown_university_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _utils_shared_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
+/* harmony import */ var _styled_shared_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -435,7 +429,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "DayPickerSingleDateController__Wrapper",
   componentId: "rwphxm-0"
-})([".DayPickerSingleDateController{width:100%;}.DayPickerNavigation_button{position:absolute;top:23px;background-color:", ";border-radius:20px;width:18px;height:12px;text-align:center;padding-top:6px;svg{fill:", ";width:8px;height:8px;display:block;margin:auto;}&:first-of-type{left:35px;transform:rotate(90deg);}&:last-of-type{right:35px;transform:rotate(-90deg);}}.CalendarMonth_caption{color:", ";font-family:", ";font-size:", ";font-weight:normal;padding-bottom:48px;}.DayPicker_weekHeader{", " & ul{border:1px solid ", ";}& li{padding:5px 0;}}", " .CalendarDay__default{font-size:", ";}.CalendarDay__outside{&:not(.CalendarDay__blocked_out_of_range){background-color:", ";color:", ";}}"], brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].gray, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].white, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].black, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["typography"].sans, Object(brown_university_components__WEBPACK_IMPORTED_MODULE_5__["getRems"])(16), _utils_shared_styles__WEBPACK_IMPORTED_MODULE_6__["WeekHeaderCSS"], brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].transparentBlack, _utils_shared_styles__WEBPACK_IMPORTED_MODULE_6__["CalendarDayCSS"], Object(brown_university_components__WEBPACK_IMPORTED_MODULE_5__["getRems"])(12), brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].lightGray, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].mediumGray);
+})([".DayPickerSingleDateController{width:100%;}.DayPickerNavigation_button{position:absolute;top:23px;background-color:", ";border-radius:20px;width:18px;height:12px;text-align:center;padding-top:6px;svg{fill:", ";width:8px;height:8px;display:block;margin:auto;}&:first-of-type{left:35px;transform:rotate(90deg);}&:last-of-type{right:35px;transform:rotate(-90deg);}}.CalendarMonth_caption{color:", ";font-family:", ";font-size:", ";font-weight:normal;padding-bottom:48px;}.DayPicker_weekHeader{", " & ul{border:1px solid ", ";}& li{padding:5px 0;}}", " .CalendarDay__default{font-size:", ";}.CalendarDay__outside{&:not(.CalendarDay__blocked_out_of_range){background-color:", ";color:", ";}}"], brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].gray, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].white, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].black, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["typography"].sans, Object(brown_university_components__WEBPACK_IMPORTED_MODULE_5__["getRems"])(16), _styled_shared_styles__WEBPACK_IMPORTED_MODULE_6__["WeekHeaderCSS"], brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].transparentBlack, _styled_shared_styles__WEBPACK_IMPORTED_MODULE_6__["CalendarDayCSS"], Object(brown_university_components__WEBPACK_IMPORTED_MODULE_5__["getRems"])(12), brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].lightGray, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].mediumGray);
 /*
   outer DayPickerSingleDateController component
 */

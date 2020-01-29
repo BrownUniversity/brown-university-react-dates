@@ -12,7 +12,7 @@ import {
 } from "brown-university-styles";
 import ChevronLeftSVG from "../svg/chevron-left.svg";
 import ChevronRightSVG from "../svg/chevron-right.svg";
-import { WeekHeaderCSS, CalendarDayCSS } from "./utils/shared_styles";
+import { WeekHeaderCSS, CalendarDayCSS } from "./styled/shared_styles";
 
 /*
   css mixins

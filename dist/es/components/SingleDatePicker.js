@@ -53,7 +53,7 @@ ChevronRightSVG.defaultProps = {
   height: "17",
   viewBox: "0 0 11 17"
 };
-import { WeekHeaderCSS, CalendarDayCSS } from "./utils/shared_styles";
+import { WeekHeaderCSS, CalendarDayCSS } from "./styled/shared_styles";
 /*
   css mixins
 */
