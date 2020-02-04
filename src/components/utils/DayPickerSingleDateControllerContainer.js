@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { string, bool, func, node, objectOf, oneOfType } from "prop-types";
+import { bool, func, node, shape } from "prop-types";
 import DayPickerSingleDateController from "../DayPickerSingleDateController";
 
 /*
@@ -48,7 +48,7 @@ const DayPickerSingleDateControllerContainer = ({
 };
 
 DayPickerSingleDateControllerContainer.propTypes = {
-  date: objectOf(oneOfType([string, bool])),
+  date: shape({}),
   focused: bool,
   onDateChange: func,
   onFocusChange: func,
