@@ -1,14 +1,14 @@
-/*! brown-university-react-dates v1.2.2 */
+/*! brown-university-react-dates v1.2.3 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("react-fns"), require("brown-university-styles"), require("@testing-library/react"));
+		module.exports = factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("react-fns"), require("brown-university-styles"), require("brown-university-components"), require("@testing-library/react"));
 	else if(typeof define === 'function' && define.amd)
-		define(["prop-types", "react", "styled-components", "moment", "react-dates", "react-fns", "brown-university-styles", "@testing-library/react"], factory);
+		define(["prop-types", "react", "styled-components", "moment", "react-dates", "react-fns", "brown-university-styles", "brown-university-components", "@testing-library/react"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("react-fns"), require("brown-university-styles"), require("@testing-library/react")) : factory(root["prop-types"], root["react"], root["styled-components"], root["moment"], root["react-dates"], root["react-fns"], root["brown-university-styles"], root["@testing-library/react"]);
+		var a = typeof exports === 'object' ? factory(require("prop-types"), require("react"), require("styled-components"), require("moment"), require("react-dates"), require("react-fns"), require("brown-university-styles"), require("brown-university-components"), require("@testing-library/react")) : factory(root["prop-types"], root["react"], root["styled-components"], root["moment"], root["react-dates"], root["react-fns"], root["brown-university-styles"], root["brown-university-components"], root["@testing-library/react"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(window, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__14__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__13__, __WEBPACK_EXTERNAL_MODULE__15__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -107,10 +107,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DayPickerSingleDateController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DayPickerSingleDateController", function() { return _components_DayPickerSingleDateController__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+/* harmony import */ var _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "singleDatePickerTestUtils", function() { return _test_utils_single_date_picker__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony import */ var _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16);
+/* harmony import */ var _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "dayPickerSingleDateControllerTestUtils", function() { return _test_utils_day_picker_single_date_controller__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
 
@@ -405,9 +405,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var brown_university_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
+/* harmony import */ var brown_university_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
 /* harmony import */ var brown_university_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(brown_university_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _styled_shared_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
+/* harmony import */ var brown_university_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+/* harmony import */ var brown_university_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _styled_shared_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(11);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -429,7 +431,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "DayPickerSingleDateController__Wrapper",
   componentId: "rwphxm-0"
-})([".DayPickerSingleDateController{width:100%;}.DayPickerNavigation_button{position:absolute;top:23px;background-color:", ";border-radius:20px;width:18px;height:12px;text-align:center;padding-top:6px;svg{fill:", ";width:8px;height:8px;display:block;margin:auto;}&:first-of-type{left:35px;transform:rotate(90deg);}&:last-of-type{right:35px;transform:rotate(-90deg);}}.CalendarMonth_caption{color:", ";font-family:", ";font-size:", ";font-weight:normal;padding-bottom:48px;}.DayPicker_weekHeader{", " & ul{border:1px solid ", ";}& li{padding:5px 0;}}", " .CalendarDay__default{font-size:", ";}.CalendarDay__outside{&:not(.CalendarDay__blocked_out_of_range){background-color:", ";color:", ";}}"], brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].gray, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].white, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].black, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["typography"].sans, Object(brown_university_components__WEBPACK_IMPORTED_MODULE_5__["getRems"])(16), _styled_shared_styles__WEBPACK_IMPORTED_MODULE_6__["WeekHeaderCSS"], brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].transparentBlack, _styled_shared_styles__WEBPACK_IMPORTED_MODULE_6__["CalendarDayCSS"], Object(brown_university_components__WEBPACK_IMPORTED_MODULE_5__["getRems"])(12), brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].lightGray, brown_university_components__WEBPACK_IMPORTED_MODULE_5__["colors"].mediumGray);
+})([".DayPickerSingleDateController{width:100%;}.DayPickerNavigation_button{position:absolute;top:23px;background-color:", ";border-radius:20px;width:18px;height:12px;text-align:center;padding-top:6px;svg{fill:", ";width:8px;height:8px;display:block;margin:auto;}&:first-of-type{left:35px;transform:rotate(90deg);}&:last-of-type{right:35px;transform:rotate(-90deg);}}.CalendarMonth_caption{color:", ";font-family:", ";font-size:", ";font-weight:normal;padding-bottom:48px;}.DayPicker_weekHeader{", " & ul{border:1px solid ", ";}& li{padding:5px 0;}}", " .CalendarDay__default{font-size:", ";}.CalendarDay__outside{&:not(.CalendarDay__blocked_out_of_range){background-color:", ";color:", ";}}"], brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"].gray, brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"].white, brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"].black, brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["typography"].sans, Object(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["getRems"])(16), _styled_shared_styles__WEBPACK_IMPORTED_MODULE_7__["WeekHeaderCSS"], brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"].transparentBlack, _styled_shared_styles__WEBPACK_IMPORTED_MODULE_7__["CalendarDayCSS"], Object(brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["getRems"])(12), brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"].lightGray, brown_university_styles__WEBPACK_IMPORTED_MODULE_6__["colors"].mediumGray);
 /*
   outer DayPickerSingleDateController component
 */
@@ -479,6 +481,12 @@ DayPickerSingleDateController.defaultProps = {
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__13__;
+
+/***/ }),
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -486,9 +494,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isoDateFormat", function() { return isoDateFormat; });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
 /* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_testing_library_react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
 
 
 
@@ -570,13 +578,13 @@ function makeSelection(_ref) {
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__14__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__15__;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -635,16 +643,16 @@ var handleWarnings = function handleWarnings(warnings, nextSelectionLabelText) {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
 /* harmony import */ var _testing_library_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_testing_library_react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
 
 
 
