@@ -45,7 +45,7 @@ These libraries are not bundled with Brown University React Dates, but are requi
 
 ## Documentation
 
-[View on VPN](https://design.cis.brown.edu/brown-university-react-dates/)
+The documentation is available at https://brownuniversity.github.io/brown-university-react-dates/.
 
 ---
 
